@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		67EA58A81308B31D00D9D5CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EA58A71308B31D00D9D5CD /* Foundation.framework */; };
 		67EA58AB1308B31D00D9D5CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EA58AA1308B31D00D9D5CD /* main.m */; };
+		67EA58B81308B33300D9D5CD /* XCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EA58B51308B33300D9D5CD /* XCObject.m */; };
+		67EA58B91308B33300D9D5CD /* XcodeProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EA58B71308B33300D9D5CD /* XcodeProject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,8 +29,12 @@
 		67EA58A31308B31D00D9D5CD /* XcodeReader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XcodeReader; sourceTree = BUILT_PRODUCTS_DIR; };
 		67EA58A71308B31D00D9D5CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67EA58AA1308B31D00D9D5CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		67EA58AD1308B31D00D9D5CD /* XcodeReader-Prefix.pch */ = {isa = PBXFileReference; path = "XcodeReader-Prefix.pch"; sourceTree = "<group>"; };
+		67EA58AD1308B31D00D9D5CD /* XcodeReader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XcodeReader-Prefix.pch"; sourceTree = "<group>"; };
 		67EA58AE1308B31D00D9D5CD /* XcodeReader.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = XcodeReader.1; sourceTree = "<group>"; };
+		67EA58B41308B33300D9D5CD /* XCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCObject.h; sourceTree = "<group>"; };
+		67EA58B51308B33300D9D5CD /* XCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCObject.m; sourceTree = "<group>"; };
+		67EA58B61308B33300D9D5CD /* XcodeProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeProject.h; sourceTree = "<group>"; };
+		67EA58B71308B33300D9D5CD /* XcodeProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,10 @@
 		67EA58A91308B31D00D9D5CD /* XcodeReader */ = {
 			isa = PBXGroup;
 			children = (
+				67EA58B41308B33300D9D5CD /* XCObject.h */,
+				67EA58B51308B33300D9D5CD /* XCObject.m */,
+				67EA58B61308B33300D9D5CD /* XcodeProject.h */,
+				67EA58B71308B33300D9D5CD /* XcodeProject.m */,
 				67EA58AA1308B31D00D9D5CD /* main.m */,
 				67EA58AE1308B31D00D9D5CD /* XcodeReader.1 */,
 				67EA58AC1308B31D00D9D5CD /* Supporting Files */,
@@ -134,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				67EA58AB1308B31D00D9D5CD /* main.m in Sources */,
+				67EA58B81308B33300D9D5CD /* XCObject.m in Sources */,
+				67EA58B91308B33300D9D5CD /* XcodeProject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
