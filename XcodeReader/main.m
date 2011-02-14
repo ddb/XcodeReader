@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "XcodeProject.h"
 
-int main (int argc, const char * argv[])
-{
-
+int main (int argc, const char * argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-    NSURL* xcodeProjectFile = [NSURL fileURLWithPath:[NSString stringWithCString:argv[1] encoding:NSASCIIStringEncoding]];
+    NSURL* xcodeProjectFile = [NSURL fileURLWithPath:[NSString stringWithCString:argv[1] 
+                                                                        encoding:NSASCIIStringEncoding]];
     XcodeProject* xcp = [[XcodeProject alloc] initFromURL:xcodeProjectFile];
     
     for (id target in xcp.rootObject.targets) {
