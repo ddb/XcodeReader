@@ -10,6 +10,7 @@
 
 
 @implementation XCObject
+@synthesize xcodeObjectType;
 
 - (id)init
 {
@@ -23,7 +24,7 @@
 
 - (void)dealloc
 {
-    [super dealloc];
+    [super dealloc]; 
 }
 
 - (void)inflateFromDictionary:(NSDictionary*)dict {
@@ -35,6 +36,7 @@
 + (XCObject*)XCObjectFromDictionary:(NSDictionary*)dict {
     NSString* objIsa = [dict objectForKey:@"isa"];
     XCObject* xcobj = [[[NSClassFromString([NSString stringWithFormat:@"XP%@", objIsa]) alloc] init] autorelease];
+    xcobj.xcodeObjectType = objIsa;
     [xcobj inflateFromDictionary:dict];
     return xcobj;
 }

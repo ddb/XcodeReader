@@ -18,8 +18,8 @@ int main (int argc, const char * argv[])
     XcodeProject* xcp = [[XcodeProject alloc] initFromURL:xcodeProjectFile];
     
     for (id target in xcp.rootObject.targets) {
-        NSLog(@"target: %@", target);
         if ([target isKindOfClass:[XPPBXNativeTarget class]]) {
+            NSLog(@"target: %@", ((XPPBXNativeTarget*)target).name);
             for (id phase in ((XPPBXNativeTarget*)target).buildPhases) {
                 if ([phase isKindOfClass:[XPPBXSourcesBuildPhase class]]) {
                     XPPBXSourcesBuildPhase* buildPhase = (XPPBXSourcesBuildPhase*)phase;

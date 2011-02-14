@@ -13,6 +13,8 @@
     
 }
 
+@property (nonatomic, retain) NSString* xcodeObjectType;
+
 - (void)inflateFromDictionary:(NSDictionary*)dict;
 - (void)connectFromDictionary:(NSDictionary*)dict usingObjectStore:(NSDictionary*)store;
 
