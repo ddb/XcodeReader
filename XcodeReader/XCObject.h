@@ -50,7 +50,13 @@
 @class XPXCConfigurationList;
 @class XPXCVersionGroup;
 
-@interface XPPBXAggregateTarget : XCObject {}
+@interface XPPBXAggregateTarget : XCObject {
+    XPXCConfigurationList* buildConfigurationList;
+    NSArray* buildPhases;
+    NSArray* dependencies;
+    NSString* name;
+    NSString* productName;
+}
 @property (nonatomic, retain) XPXCConfigurationList* buildConfigurationList;
 // types in buildPhases: PBXCopyFilesBuildPhase, PBXShellScriptBuildPhase
 @property (nonatomic, retain) NSArray* buildPhases;
@@ -60,7 +66,13 @@
 @property (nonatomic, retain) NSString* productName;
 @end
 
-@interface XPPBXAppleScriptBuildPhase : XCObject {}
+@interface XPPBXAppleScriptBuildPhase : XCObject {
+    NSString* buildActionMask;
+    NSString* contextName;
+    NSArray* files;
+    NSString* isSharedContext;
+    NSString* runOnlyForDeploymentPostprocessing;
+}
 @property (nonatomic, retain) NSString* buildActionMask;
 @property (nonatomic, retain) NSString* contextName;
 // types in files: PBXBuildFile
@@ -69,12 +81,24 @@
 @property (nonatomic, retain) NSString* runOnlyForDeploymentPostprocessing;
 @end
 
-@interface XPPBXApplicationReference : XCObject {}
+@interface XPPBXApplicationReference : XCObject {
+    NSString* path;
+    NSString* refType;
+}
 @property (nonatomic, retain) NSString* path;
 @property (nonatomic, retain) NSString* refType;
 @end
 
-@interface XPPBXApplicationTarget : XCObject {}
+@interface XPPBXApplicationTarget : XCObject {
+    XPXCConfigurationList* buildConfigurationList;
+    NSArray* buildPhases;
+    NSDictionary* buildSettings;
+    NSString* name;
+    NSString* productInstallPath;
+    NSString* productName;
+    XPPBXFileReference* productReference;
+    NSString* productSettingsXML;
+}
 @property (nonatomic, retain) XPXCConfigurationList* buildConfigurationList;
 // types in buildPhases: PBXResourcesBuildPhase, PBXFrameworksBuildPhase, PBXSourcesBuildPhase, PBXHeadersBuildPhase
 @property (nonatomic, retain) NSArray* buildPhases;
@@ -86,12 +110,22 @@
 @property (nonatomic, retain) NSString* productSettingsXML;
 @end
 
-@interface XPPBXBuildFile : XCObject {}
+@interface XPPBXBuildFile : XCObject {
+    XPPBXFileReference* fileRef;
+    NSDictionary* settings;
+}
 @property (nonatomic, retain) XPPBXFileReference* fileRef;
 @property (nonatomic, retain) NSDictionary* settings;
 @end
 
-@interface XPPBXBuildRule : XCObject {}
+@interface XPPBXBuildRule : XCObject {
+    NSString* compilerSpec;
+    NSString* filePatterns;
+    NSString* fileType;
+    NSString* isEditable;
+    NSArray* outputFiles;
+    NSString* script;
+}
 @property (nonatomic, retain) NSString* compilerSpec;
 @property (nonatomic, retain) NSString* filePatterns;
 @property (nonatomic, retain) NSString* fileType;
@@ -101,19 +135,34 @@
 @property (nonatomic, retain) NSString* script;
 @end
 
-@interface XPPBXBuildStyle : XCObject {}
+@interface XPPBXBuildStyle : XCObject {
+    NSDictionary* buildSettings;
+    NSString* name;
+}
 @property (nonatomic, retain) NSDictionary* buildSettings;
 @property (nonatomic, retain) NSString* name;
 @end
 
-@interface XPPBXContainerItemProxy : XCObject {}
+@interface XPPBXContainerItemProxy : XCObject {
+    XPPBXProject* containerPortal;
+    NSString* proxyType;
+    XPPBXNativeTarget* remoteGlobalIDString;
+    NSString* remoteInfo;
+}
 @property (nonatomic, retain) XPPBXProject* containerPortal;
 @property (nonatomic, retain) NSString* proxyType;
 @property (nonatomic, retain) XPPBXNativeTarget* remoteGlobalIDString;
 @property (nonatomic, retain) NSString* remoteInfo;
 @end
 
-@interface XPPBXCopyFilesBuildPhase : XCObject {}
+@interface XPPBXCopyFilesBuildPhase : XCObject {
+    NSString* buildActionMask;
+    NSString* dstPath;
+    NSString* dstSubfolderSpec;
+    NSArray* files;
+    NSString* name;
+    NSString* runOnlyForDeploymentPostprocessing;
+}
 @property (nonatomic, retain) NSString* buildActionMask;
 @property (nonatomic, retain) NSString* dstPath;
 @property (nonatomic, retain) NSString* dstSubfolderSpec;
@@ -123,7 +172,24 @@
 @property (nonatomic, retain) NSString* runOnlyForDeploymentPostprocessing;
 @end
 
-@interface XPPBXFileReference : XCObject {}
+@interface XPPBXFileReference : XCObject {
+    NSString* explicitFileType;
+    NSString* fileEncoding;
+    NSString* includeInIndex;
+    NSString* indentWidth;
+    NSString* languageSpecificationIdentifier;
+    NSString* lastKnownFileType;
+    NSString* lineEnding;
+    NSString* name;
+    NSString* path;
+    NSString* plistStructureDefinitionIdentifier;
+    NSString* refType;
+    NSString* sourceTree;
+    NSString* tabWidth;
+    NSString* usesTabs;
+    NSString* wrapsLines;
+    NSString* xcLanguageSpecificationIdentifier;
+}
 @property (nonatomic, retain) NSString* explicitFileType;
 @property (nonatomic, retain) NSString* fileEncoding;
 @property (nonatomic, retain) NSString* includeInIndex;
@@ -142,20 +208,34 @@
 @property (nonatomic, retain) NSString* xcLanguageSpecificationIdentifier;
 @end
 
-@interface XPPBXFrameworkReference : XCObject {}
+@interface XPPBXFrameworkReference : XCObject {
+    NSString* name;
+    NSString* path;
+    NSString* refType;
+}
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* path;
 @property (nonatomic, retain) NSString* refType;
 @end
 
-@interface XPPBXFrameworksBuildPhase : XCObject {}
+@interface XPPBXFrameworksBuildPhase : XCObject {
+    NSString* buildActionMask;
+    NSArray* files;
+    NSString* runOnlyForDeploymentPostprocessing;
+}
 @property (nonatomic, retain) NSString* buildActionMask;
 // types in files: PBXBuildFile
 @property (nonatomic, retain) NSArray* files;
 @property (nonatomic, retain) NSString* runOnlyForDeploymentPostprocessing;
 @end
 
-@interface XPPBXGroup : XCObject {}
+@interface XPPBXGroup : XCObject {
+    NSArray* children;
+    NSString* name;
+    NSString* path;
+    NSString* refType;
+    NSString* sourceTree;
+}
 // types in children: PBXReferenceProxy, PBXApplicationReference, PBXFileReference, PBXFrameworkReference, PBXGroup, PBXVariantGroup, XCVersionGroup
 @property (nonatomic, retain) NSArray* children;
 @property (nonatomic, retain) NSString* name;
@@ -164,14 +244,26 @@
 @property (nonatomic, retain) NSString* sourceTree;
 @end
 
-@interface XPPBXHeadersBuildPhase : XCObject {}
+@interface XPPBXHeadersBuildPhase : XCObject {
+    NSString* buildActionMask;
+    NSArray* files;
+    NSString* runOnlyForDeploymentPostprocessing;
+}
 @property (nonatomic, retain) NSString* buildActionMask;
 // types in files: PBXBuildFile
 @property (nonatomic, retain) NSArray* files;
 @property (nonatomic, retain) NSString* runOnlyForDeploymentPostprocessing;
 @end
 
-@interface XPPBXLegacyTarget : XCObject {}
+@interface XPPBXLegacyTarget : XCObject {
+    NSString* buildArgumentsString;
+    XPXCConfigurationList* buildConfigurationList;
+    NSString* buildToolPath;
+    NSString* buildWorkingDirectory;
+    NSString* name;
+    NSString* passBuildSettingsInEnvironment;
+    NSString* productName;
+}
 @property (nonatomic, retain) NSString* buildArgumentsString;
 @property (nonatomic, retain) XPXCConfigurationList* buildConfigurationList;
 @property (nonatomic, retain) NSString* buildToolPath;
@@ -181,7 +273,18 @@
 @property (nonatomic, retain) NSString* productName;
 @end
 
-@interface XPPBXNativeTarget : XCObject {}
+@interface XPPBXNativeTarget : XCObject {
+    XPXCConfigurationList* buildConfigurationList;
+    NSArray* buildPhases;
+    NSArray* buildRules;
+    NSDictionary* buildSettings;
+    NSArray* dependencies;
+    NSString* name;
+    NSString* productInstallPath;
+    NSString* productName;
+    XPPBXFileReference* productReference;
+    NSString* productType;
+}
 @property (nonatomic, retain) XPXCConfigurationList* buildConfigurationList;
 // types in buildPhases: PBXAppleScriptBuildPhase, PBXResourcesBuildPhase, PBXCopyFilesBuildPhase, PBXFrameworksBuildPhase, PBXShellScriptBuildPhase, PBXHeadersBuildPhase, PBXSourcesBuildPhase, PBXRezBuildPhase
 @property (nonatomic, retain) NSArray* buildPhases;
@@ -197,7 +300,23 @@
 @property (nonatomic, retain) NSString* productType;
 @end
 
-@interface XPPBXProject : XCObject {}
+@interface XPPBXProject : XCObject {
+    NSDictionary* attributes;
+    XPXCConfigurationList* buildConfigurationList;
+    NSDictionary* buildSettings;
+    NSArray* buildStyles;
+    NSString* compatibilityVersion;
+    NSString* developmentRegion;
+    NSString* hasScannedForEncodings;
+    NSArray* knownRegions;
+    XPPBXGroup* mainGroup;
+    XPPBXGroup* productRefGroup;
+    NSString* projectDirPath;
+    NSArray* projectReferences;
+    NSString* projectRoot;
+    NSString* shouldCheckCompatibility;
+    NSArray* targets;
+}
 @property (nonatomic, retain) NSDictionary* attributes;
 @property (nonatomic, retain) XPXCConfigurationList* buildConfigurationList;
 @property (nonatomic, retain) NSDictionary* buildSettings;
@@ -219,7 +338,13 @@
 @property (nonatomic, retain) NSArray* targets;
 @end
 
-@interface XPPBXReferenceProxy : XCObject {}
+@interface XPPBXReferenceProxy : XCObject {
+    NSString* fileType;
+    NSString* name;
+    NSString* path;
+    XPPBXContainerItemProxy* remoteRef;
+    NSString* sourceTree;
+}
 @property (nonatomic, retain) NSString* fileType;
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* path;
@@ -227,21 +352,38 @@
 @property (nonatomic, retain) NSString* sourceTree;
 @end
 
-@interface XPPBXResourcesBuildPhase : XCObject {}
+@interface XPPBXResourcesBuildPhase : XCObject {
+    NSString* buildActionMask;
+    NSArray* files;
+    NSString* runOnlyForDeploymentPostprocessing;
+}
 @property (nonatomic, retain) NSString* buildActionMask;
 // types in files: PBXBuildFile
 @property (nonatomic, retain) NSArray* files;
 @property (nonatomic, retain) NSString* runOnlyForDeploymentPostprocessing;
 @end
 
-@interface XPPBXRezBuildPhase : XCObject {}
+@interface XPPBXRezBuildPhase : XCObject {
+    NSString* buildActionMask;
+    NSArray* files;
+    NSString* runOnlyForDeploymentPostprocessing;
+}
 @property (nonatomic, retain) NSString* buildActionMask;
 // types in files: PBXBuildFile
 @property (nonatomic, retain) NSArray* files;
 @property (nonatomic, retain) NSString* runOnlyForDeploymentPostprocessing;
 @end
 
-@interface XPPBXShellScriptBuildPhase : XCObject {}
+@interface XPPBXShellScriptBuildPhase : XCObject {
+    NSString* buildActionMask;
+    NSArray* inputPaths;
+    NSString* name;
+    NSArray* outputPaths;
+    NSString* runOnlyForDeploymentPostprocessing;
+    NSString* shellPath;
+    NSString* shellScript;
+    NSString* showEnvVarsInLog;
+}
 @property (nonatomic, retain) NSString* buildActionMask;
 // types in inputPaths: NSString
 @property (nonatomic, retain) NSArray* inputPaths;
@@ -254,20 +396,34 @@
 @property (nonatomic, retain) NSString* showEnvVarsInLog;
 @end
 
-@interface XPPBXSourcesBuildPhase : XCObject {}
+@interface XPPBXSourcesBuildPhase : XCObject {
+    NSString* buildActionMask;
+    NSArray* files;
+    NSString* runOnlyForDeploymentPostprocessing;
+}
 @property (nonatomic, retain) NSString* buildActionMask;
 // types in files: PBXBuildFile
 @property (nonatomic, retain) NSArray* files;
 @property (nonatomic, retain) NSString* runOnlyForDeploymentPostprocessing;
 @end
 
-@interface XPPBXTargetDependency : XCObject {}
+@interface XPPBXTargetDependency : XCObject {
+    NSString* name;
+    XPPBXNativeTarget* target;
+    XPPBXContainerItemProxy* targetProxy;
+}
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) XPPBXNativeTarget* target;
 @property (nonatomic, retain) XPPBXContainerItemProxy* targetProxy;
 @end
 
-@interface XPPBXVariantGroup : XCObject {}
+@interface XPPBXVariantGroup : XCObject {
+    NSArray* children;
+    NSString* name;
+    NSString* path;
+    NSString* refType;
+    NSString* sourceTree;
+}
 // types in children: PBXVariantGroup, PBXFileReference
 @property (nonatomic, retain) NSArray* children;
 @property (nonatomic, retain) NSString* name;
@@ -276,20 +432,34 @@
 @property (nonatomic, retain) NSString* sourceTree;
 @end
 
-@interface XPXCBuildConfiguration : XCObject {}
+@interface XPXCBuildConfiguration : XCObject {
+    XPPBXFileReference* baseConfigurationReference;
+    NSDictionary* buildSettings;
+    NSString* name;
+}
 @property (nonatomic, retain) XPPBXFileReference* baseConfigurationReference;
 @property (nonatomic, retain) NSDictionary* buildSettings;
 @property (nonatomic, retain) NSString* name;
 @end
 
-@interface XPXCConfigurationList : XCObject {}
+@interface XPXCConfigurationList : XCObject {
+    NSArray* buildConfigurations;
+    NSString* defaultConfigurationIsVisible;
+    NSString* defaultConfigurationName;
+}
 // types in buildConfigurations: XCBuildConfiguration
 @property (nonatomic, retain) NSArray* buildConfigurations;
 @property (nonatomic, retain) NSString* defaultConfigurationIsVisible;
 @property (nonatomic, retain) NSString* defaultConfigurationName;
 @end
 
-@interface XPXCVersionGroup : XCObject {}
+@interface XPXCVersionGroup : XCObject {
+    NSArray* children;
+    XPPBXFileReference* currentVersion;
+    NSString* path;
+    NSString* sourceTree;
+    NSString* versionGroupType;
+}
 // types in children: PBXFileReference
 @property (nonatomic, retain) NSArray* children;
 @property (nonatomic, retain) XPPBXFileReference* currentVersion;
