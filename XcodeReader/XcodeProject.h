@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "XCObject.h"
 
-@interface XcodeProject : NSObject {}
+@interface XcodeProject : NSObject {
+    NSDictionary* objects;
+    XPPBXProject* rootObject;
+}
 
 @property (retain) NSDictionary* objects;
 @property (retain) XPPBXProject* rootObject;
