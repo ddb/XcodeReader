@@ -1,0 +1,223 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67EA58A81308B31D00D9D5CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EA58A71308B31D00D9D5CD /* Foundation.framework */; };
+		67EA58AB1308B31D00D9D5CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EA58AA1308B31D00D9D5CD /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		67EA58A11308B31D00D9D5CD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		67EA58A31308B31D00D9D5CD /* XcodeReader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XcodeReader; sourceTree = BUILT_PRODUCTS_DIR; };
+		67EA58A71308B31D00D9D5CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		67EA58AA1308B31D00D9D5CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		67EA58AD1308B31D00D9D5CD /* XcodeReader-Prefix.pch */ = {isa = PBXFileReference; path = "XcodeReader-Prefix.pch"; sourceTree = "<group>"; };
+		67EA58AE1308B31D00D9D5CD /* XcodeReader.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = XcodeReader.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67EA58A01308B31D00D9D5CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67EA58A81308B31D00D9D5CD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		67EA58981308B31D00D9D5CD = {
+			isa = PBXGroup;
+			children = (
+				67EA58A91308B31D00D9D5CD /* XcodeReader */,
+				67EA58A61308B31D00D9D5CD /* Frameworks */,
+				67EA58A41308B31D00D9D5CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		67EA58A41308B31D00D9D5CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67EA58A31308B31D00D9D5CD /* XcodeReader */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67EA58A61308B31D00D9D5CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67EA58A71308B31D00D9D5CD /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67EA58A91308B31D00D9D5CD /* XcodeReader */ = {
+			isa = PBXGroup;
+			children = (
+				67EA58AA1308B31D00D9D5CD /* main.m */,
+				67EA58AE1308B31D00D9D5CD /* XcodeReader.1 */,
+				67EA58AC1308B31D00D9D5CD /* Supporting Files */,
+			);
+			path = XcodeReader;
+			sourceTree = "<group>";
+		};
+		67EA58AC1308B31D00D9D5CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67EA58AD1308B31D00D9D5CD /* XcodeReader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		67EA58A21308B31D00D9D5CD /* XcodeReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67EA58B11308B31D00D9D5CD /* Build configuration list for PBXNativeTarget "XcodeReader" */;
+			buildPhases = (
+				67EA589F1308B31D00D9D5CD /* Sources */,
+				67EA58A01308B31D00D9D5CD /* Frameworks */,
+				67EA58A11308B31D00D9D5CD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XcodeReader;
+			productName = XcodeReader;
+			productReference = 67EA58A31308B31D00D9D5CD /* XcodeReader */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67EA589A1308B31D00D9D5CD /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 67EA589D1308B31D00D9D5CD /* Build configuration list for PBXProject "XcodeReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 67EA58981308B31D00D9D5CD;
+			productRefGroup = 67EA58A41308B31D00D9D5CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67EA58A21308B31D00D9D5CD /* XcodeReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67EA589F1308B31D00D9D5CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67EA58AB1308B31D00D9D5CD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		67EA58AF1308B31D00D9D5CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		67EA58B01308B31D00D9D5CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		67EA58B21308B31D00D9D5CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XcodeReader/XcodeReader-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		67EA58B31308B31D00D9D5CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XcodeReader/XcodeReader-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67EA589D1308B31D00D9D5CD /* Build configuration list for PBXProject "XcodeReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67EA58AF1308B31D00D9D5CD /* Debug */,
+				67EA58B01308B31D00D9D5CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67EA58B11308B31D00D9D5CD /* Build configuration list for PBXNativeTarget "XcodeReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67EA58B21308B31D00D9D5CD /* Debug */,
+				67EA58B31308B31D00D9D5CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67EA589A1308B31D00D9D5CD /* Project object */;
+}
