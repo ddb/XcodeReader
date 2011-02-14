@@ -1,0 +1,15 @@
+This is a quick first attempt at reading Xcode project files into
+some sort of data structure.
+
+You are hereby warned: The Xcode project file format is
+undocumented, and is subject to change at any time, for any reason
+that the Apple Developer Tools team may have. This code is mostly
+automatically generated, so there are weirdnesses creeping around
+inside.
+
+I fully intend on improving the parsing (e.g. more specific types
+for ordinary fields, rather than treating them all like NSString's),
+so expect stuff to change.
+
+All of this stuff is still copyright (C)2011 by David Brown. Don't
+be a dick with the source code.
