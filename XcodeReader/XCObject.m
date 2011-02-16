@@ -24,7 +24,7 @@
 
 - (void)dealloc
 {
-    [super dealloc]; 
+    [super dealloc];
 }
 
 - (void)inflateFromDictionary:(NSDictionary*)dict {

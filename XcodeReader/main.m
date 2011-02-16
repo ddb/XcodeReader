@@ -26,25 +26,30 @@ int main (int argc, const char * argv[]) {
                 if ([phase isKindOfClass:[XPPBXSourcesBuildPhase class]]) {
                     XPPBXSourcesBuildPhase* buildPhase = (XPPBXSourcesBuildPhase*)phase;
                     for (XPPBXBuildFile* file in buildPhase.files) {
-                        NSLog(@"file: %@", file.fileRef.path);
+                        // in the sourcesBuildPhase, file.fileRef.path is used
+                        NSLog(@"file: %@ (%@)", file.fileRef.path, file.fileRef.xcodeObjectType);
                     }
                 } else if ([phase isKindOfClass:[XPPBXResourcesBuildPhase class]]) {
                     XPPBXResourcesBuildPhase* resourcesPhase = (XPPBXResourcesBuildPhase*)phase;
                     for (XPPBXBuildFile* file in resourcesPhase.files) {
-                        NSLog(@"resource file: %@", file.fileRef.path);
+                        // in the resourcesBuildPhase, file.fileRef.name is used
+                        NSLog(@"resource file: %@ (%@)", file.fileRef.name, file.fileRef.xcodeObjectType);
                     }
                 } else if ([phase isKindOfClass:[XPPBXFrameworksBuildPhase class]]) {
                     XPPBXFrameworksBuildPhase* frameworksBuildPhase = (XPPBXFrameworksBuildPhase*)phase;
                     for (XPPBXBuildFile* file in frameworksBuildPhase.files) {
-                        NSLog(@"framework file: %@", file.fileRef.path);
+                        // in the frameworksBuildPhase, file.fileRef.path is used
+                        NSLog(@"framework file: %@ (%@)", file.fileRef.path, file.fileRef.xcodeObjectType);
                     }
                 } else if ([phase isKindOfClass:[XPPBXCopyFilesBuildPhase class]]) {
                     XPPBXCopyFilesBuildPhase* copyPhase = (XPPBXCopyFilesBuildPhase*)phase;
                     for (XPPBXBuildFile* file in copyPhase.files) {
-                        NSLog(@"copy file: %@", file.fileRef.path);
+                        // in the copyFilesBuildPhase, file.fileRef.path is used
+                        NSLog(@"copy file: %@ (%@)", file.fileRef.path, file.fileRef.xcodeObjectType);
                     }
                 } else if ([phase isKindOfClass:[XPPBXShellScriptBuildPhase class]]) {
                     XPPBXShellScriptBuildPhase* scriptPhase = (XPPBXShellScriptBuildPhase*)phase;
+                    // in the shellScriptBuildPhase, there are no children, the script is stored directly
                     NSLog(@"script: %@", scriptPhase.shellScript);
                 }
                 
