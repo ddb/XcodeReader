@@ -11,6 +11,8 @@
 		67BF85B913104A450004228D /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B213104A450004228D /* DDCliParseException.m */; };
 		67BF85BA13104A450004228D /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B413104A450004228D /* DDCliUtil.m */; };
 		67BF85BB13104A450004228D /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B713104A450004228D /* DDGetoptLongParser.m */; };
+		67BF85C113104B4B0004228D /* XcodeProjectFileParserBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */; };
+		67BF85C213104B4B0004228D /* XcodeProjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85C013104B4B0004228D /* XcodeProjectParser.m */; };
 		67EA58A81308B31D00D9D5CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EA58A71308B31D00D9D5CD /* Foundation.framework */; };
 		67EA58AB1308B31D00D9D5CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EA58AA1308B31D00D9D5CD /* main.m */; };
 		67EA58B81308B33300D9D5CD /* XCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EA58B51308B33300D9D5CD /* XCObject.m */; };
@@ -39,6 +41,10 @@
 		67BF85B513104A450004228D /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
 		67BF85B613104A450004228D /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
 		67BF85B713104A450004228D /* DDGetoptLongParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLongParser.m; sourceTree = "<group>"; };
+		67BF85BD13104B4B0004228D /* XcodeProjectFileParserBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeProjectFileParserBuilder.h; sourceTree = "<group>"; };
+		67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectFileParserBuilder.m; sourceTree = "<group>"; };
+		67BF85BF13104B4B0004228D /* XcodeProjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeProjectParser.h; sourceTree = "<group>"; };
+		67BF85C013104B4B0004228D /* XcodeProjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectParser.m; sourceTree = "<group>"; };
 		67EA58A31308B31D00D9D5CD /* XcodeReader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XcodeReader; sourceTree = BUILT_PRODUCTS_DIR; };
 		67EA58A71308B31D00D9D5CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67EA58AA1308B31D00D9D5CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,6 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				67BF85AE13104A450004228D /* ddcli */,
+				67BF85BD13104B4B0004228D /* XcodeProjectFileParserBuilder.h */,
+				67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */,
+				67BF85BF13104B4B0004228D /* XcodeProjectParser.h */,
+				67BF85C013104B4B0004228D /* XcodeProjectParser.m */,
 				67EA58B41308B33300D9D5CD /* XCObject.h */,
 				67EA58B51308B33300D9D5CD /* XCObject.m */,
 				67EA58B61308B33300D9D5CD /* XcodeProject.h */,
@@ -181,6 +191,8 @@
 				67BF85B913104A450004228D /* DDCliParseException.m in Sources */,
 				67BF85BA13104A450004228D /* DDCliUtil.m in Sources */,
 				67BF85BB13104A450004228D /* DDGetoptLongParser.m in Sources */,
+				67BF85C113104B4B0004228D /* XcodeProjectFileParserBuilder.m in Sources */,
+				67BF85C213104B4B0004228D /* XcodeProjectParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
