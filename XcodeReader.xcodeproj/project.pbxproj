@@ -11,8 +11,6 @@
 		67BF85B913104A450004228D /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B213104A450004228D /* DDCliParseException.m */; };
 		67BF85BA13104A450004228D /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B413104A450004228D /* DDCliUtil.m */; };
 		67BF85BB13104A450004228D /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B713104A450004228D /* DDGetoptLongParser.m */; };
-		67BF85C113104B4B0004228D /* XcodeProjectFileParserBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */; };
-		67BF85C213104B4B0004228D /* XcodeProjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85C013104B4B0004228D /* XcodeProjectParser.m */; };
 		67BF85C613104D8C0004228D /* XcodeProjectTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85C313104D8C0004228D /* XcodeProjectTestMain.m */; };
 		67BF85C713104D8C0004228D /* XcodeProjectTestApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85C513104D8C0004228D /* XcodeProjectTestApp.m */; };
 		67EA58A81308B31D00D9D5CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EA58A71308B31D00D9D5CD /* Foundation.framework */; };
@@ -49,7 +47,7 @@
 		67BF85C313104D8C0004228D /* XcodeProjectTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectTestMain.m; sourceTree = "<group>"; };
 		67BF85C413104D8C0004228D /* XcodeProjectTestApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeProjectTestApp.h; sourceTree = "<group>"; };
 		67BF85C513104D8C0004228D /* XcodeProjectTestApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectTestApp.m; sourceTree = "<group>"; };
-		67EA58A31308B31D00D9D5CD /* XcodeReader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XcodeReader; sourceTree = BUILT_PRODUCTS_DIR; };
+		67EA58A31308B31D00D9D5CD /* XcodeReaderTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XcodeReaderTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67EA58A71308B31D00D9D5CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67EA58AD1308B31D00D9D5CD /* XcodeReader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XcodeReader-Prefix.pch"; sourceTree = "<group>"; };
 		67EA58AE1308B31D00D9D5CD /* XcodeReader.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = XcodeReader.1; sourceTree = "<group>"; };
@@ -71,6 +69,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6702CC191310537100470BA8 /* Xcode Project File Data */ = {
+			isa = PBXGroup;
+			children = (
+				67EA58B41308B33300D9D5CD /* XCObject.h */,
+				67EA58B51308B33300D9D5CD /* XCObject.m */,
+				67EA58B61308B33300D9D5CD /* XcodeProject.h */,
+				67EA58B71308B33300D9D5CD /* XcodeProject.m */,
+			);
+			name = "Xcode Project File Data";
+			sourceTree = "<group>";
+		};
+		6702CC1A1310538600470BA8 /* Xcode Project File Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				67BF85BF13104B4B0004228D /* XcodeProjectParser.h */,
+				67BF85C013104B4B0004228D /* XcodeProjectParser.m */,
+			);
+			name = "Xcode Project File Analysis";
+			sourceTree = "<group>";
+		};
+		6702CC1B1310539600470BA8 /* Xcode Project File Parser Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67BF85BD13104B4B0004228D /* XcodeProjectFileParserBuilder.h */,
+				67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */,
+			);
+			name = "Xcode Project File Parser Builder";
+			sourceTree = "<group>";
+		};
+		6702CC1C131053B400470BA8 /* Example Parser Use */ = {
+			isa = PBXGroup;
+			children = (
+				67BF85C413104D8C0004228D /* XcodeProjectTestApp.h */,
+				67BF85C513104D8C0004228D /* XcodeProjectTestApp.m */,
+				67BF85C313104D8C0004228D /* XcodeProjectTestMain.m */,
+			);
+			name = "Example Parser Use";
+			sourceTree = "<group>";
+		};
+		6702CC1D131053F200470BA8 /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				6702CC1B1310539600470BA8 /* Xcode Project File Parser Builder */,
+				6702CC1A1310538600470BA8 /* Xcode Project File Analysis */,
+			);
+			name = Meta;
+			sourceTree = "<group>";
+		};
 		67BF85AE13104A450004228D /* ddcli */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +146,7 @@
 		67EA58A41308B31D00D9D5CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				67EA58A31308B31D00D9D5CD /* XcodeReader */,
+				67EA58A31308B31D00D9D5CD /* XcodeReaderTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,18 +162,9 @@
 		67EA58A91308B31D00D9D5CD /* XcodeReader */ = {
 			isa = PBXGroup;
 			children = (
-				67BF85AE13104A450004228D /* ddcli */,
-				67BF85BD13104B4B0004228D /* XcodeProjectFileParserBuilder.h */,
-				67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */,
-				67BF85BF13104B4B0004228D /* XcodeProjectParser.h */,
-				67BF85C013104B4B0004228D /* XcodeProjectParser.m */,
-				67EA58B41308B33300D9D5CD /* XCObject.h */,
-				67EA58B51308B33300D9D5CD /* XCObject.m */,
-				67EA58B61308B33300D9D5CD /* XcodeProject.h */,
-				67EA58B71308B33300D9D5CD /* XcodeProject.m */,
-				67BF85C413104D8C0004228D /* XcodeProjectTestApp.h */,
-				67BF85C513104D8C0004228D /* XcodeProjectTestApp.m */,
-				67BF85C313104D8C0004228D /* XcodeProjectTestMain.m */,
+				6702CC1D131053F200470BA8 /* Meta */,
+				6702CC191310537100470BA8 /* Xcode Project File Data */,
+				6702CC1C131053B400470BA8 /* Example Parser Use */,
 				67EA58AE1308B31D00D9D5CD /* XcodeReader.1 */,
 				67EA58AC1308B31D00D9D5CD /* Supporting Files */,
 			);
@@ -137,6 +174,7 @@
 		67EA58AC1308B31D00D9D5CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				67BF85AE13104A450004228D /* ddcli */,
 				67EA58AD1308B31D00D9D5CD /* XcodeReader-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -145,9 +183,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		67EA58A21308B31D00D9D5CD /* XcodeReader */ = {
+		67EA58A21308B31D00D9D5CD /* XcodeReaderTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67EA58B11308B31D00D9D5CD /* Build configuration list for PBXNativeTarget "XcodeReader" */;
+			buildConfigurationList = 67EA58B11308B31D00D9D5CD /* Build configuration list for PBXNativeTarget "XcodeReaderTest" */;
 			buildPhases = (
 				67EA589F1308B31D00D9D5CD /* Sources */,
 				67EA58A01308B31D00D9D5CD /* Frameworks */,
@@ -157,9 +195,9 @@
 			);
 			dependencies = (
 			);
-			name = XcodeReader;
+			name = XcodeReaderTest;
 			productName = XcodeReader;
-			productReference = 67EA58A31308B31D00D9D5CD /* XcodeReader */;
+			productReference = 67EA58A31308B31D00D9D5CD /* XcodeReaderTest */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +217,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				67EA58A21308B31D00D9D5CD /* XcodeReader */,
+				67EA58A21308B31D00D9D5CD /* XcodeReaderTest */,
 			);
 		};
 /* End PBXProject section */
@@ -195,8 +233,6 @@
 				67BF85B913104A450004228D /* DDCliParseException.m in Sources */,
 				67BF85BA13104A450004228D /* DDCliUtil.m in Sources */,
 				67BF85BB13104A450004228D /* DDGetoptLongParser.m in Sources */,
-				67BF85C113104B4B0004228D /* XcodeProjectFileParserBuilder.m in Sources */,
-				67BF85C213104B4B0004228D /* XcodeProjectParser.m in Sources */,
 				67BF85C613104D8C0004228D /* XcodeProjectTestMain.m in Sources */,
 				67BF85C713104D8C0004228D /* XcodeProjectTestApp.m in Sources */,
 			);
@@ -247,7 +283,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XcodeReader/XcodeReader-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = XcodeReaderTest;
 			};
 			name = Debug;
 		};
@@ -260,7 +296,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XcodeReader/XcodeReader-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = XcodeReaderTest;
 			};
 			name = Release;
 		};
@@ -276,7 +312,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		67EA58B11308B31D00D9D5CD /* Build configuration list for PBXNativeTarget "XcodeReader" */ = {
+		67EA58B11308B31D00D9D5CD /* Build configuration list for PBXNativeTarget "XcodeReaderTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				67EA58B21308B31D00D9D5CD /* Debug */,
