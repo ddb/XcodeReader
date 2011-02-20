@@ -15,6 +15,14 @@
 		6702CC35131187FF00470BA8 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B413104A450004228D /* DDCliUtil.m */; };
 		6702CC38131187FF00470BA8 /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B713104A450004228D /* DDGetoptLongParser.m */; };
 		6702CC3B131188CB00470BA8 /* XcodeProjectAnalyzerApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6702CC3A131188CB00470BA8 /* XcodeProjectAnalyzerApp.m */; };
+		6702CC4A1311A14A00470BA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EA58A71308B31D00D9D5CD /* Foundation.framework */; };
+		6702CC4D1311A14B00470BA8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6702CC4C1311A14B00470BA8 /* main.m */; };
+		6702CC551311A16D00470BA8 /* XcodeProjectFileParserBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */; };
+		6702CC571311A16D00470BA8 /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B013104A450004228D /* DDCliApplication.m */; };
+		6702CC591311A16D00470BA8 /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B213104A450004228D /* DDCliParseException.m */; };
+		6702CC5B1311A16D00470BA8 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B413104A450004228D /* DDCliUtil.m */; };
+		6702CC5E1311A16D00470BA8 /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B713104A450004228D /* DDGetoptLongParser.m */; };
+		6702CC611311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6702CC601311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.m */; };
 		67BF85B813104A450004228D /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B013104A450004228D /* DDCliApplication.m */; };
 		67BF85B913104A450004228D /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B213104A450004228D /* DDCliParseException.m */; };
 		67BF85BA13104A450004228D /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B413104A450004228D /* DDCliUtil.m */; };
@@ -28,6 +36,15 @@
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6702CC201311875F00470BA8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		6702CC461311A14A00470BA8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -54,6 +71,12 @@
 		6702CC2A1311876000470BA8 /* xcodeprojanalyzer.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = xcodeprojanalyzer.1; sourceTree = "<group>"; };
 		6702CC39131188CB00470BA8 /* XcodeProjectAnalyzerApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeProjectAnalyzerApp.h; sourceTree = "<group>"; };
 		6702CC3A131188CB00470BA8 /* XcodeProjectAnalyzerApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectAnalyzerApp.m; sourceTree = "<group>"; };
+		6702CC481311A14A00470BA8 /* xcodeprojreadergenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xcodeprojreadergenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		6702CC4C1311A14B00470BA8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6702CC4F1311A14B00470BA8 /* xcodeprojreadergenerator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xcodeprojreadergenerator-Prefix.pch"; sourceTree = "<group>"; };
+		6702CC501311A14B00470BA8 /* xcodeprojreadergenerator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = xcodeprojreadergenerator.1; sourceTree = "<group>"; };
+		6702CC5F1311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeProjectFileParserBuilderApp.h; sourceTree = "<group>"; };
+		6702CC601311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectFileParserBuilderApp.m; sourceTree = "<group>"; };
 		67BF85AF13104A450004228D /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
 		67BF85B013104A450004228D /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
 		67BF85B113104A450004228D /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
@@ -63,8 +86,8 @@
 		67BF85B513104A450004228D /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
 		67BF85B613104A450004228D /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
 		67BF85B713104A450004228D /* DDGetoptLongParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLongParser.m; sourceTree = "<group>"; };
-		67BF85BD13104B4B0004228D /* XcodeProjectFileParserBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeProjectFileParserBuilder.h; sourceTree = "<group>"; };
-		67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectFileParserBuilder.m; sourceTree = "<group>"; };
+		67BF85BD13104B4B0004228D /* XcodeProjectFileParserBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeProjectFileParserBuilder.h; path = ../XcodeReader/XcodeProjectFileParserBuilder.h; sourceTree = "<group>"; };
+		67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XcodeProjectFileParserBuilder.m; path = ../XcodeReader/XcodeProjectFileParserBuilder.m; sourceTree = "<group>"; };
 		67BF85BF13104B4B0004228D /* XcodeProjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeProjectParser.h; path = ../XcodeReader/XcodeProjectParser.h; sourceTree = "<group>"; };
 		67BF85C013104B4B0004228D /* XcodeProjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XcodeProjectParser.m; path = ../XcodeReader/XcodeProjectParser.m; sourceTree = "<group>"; };
 		67BF85C313104D8C0004228D /* XcodeProjectTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectTestMain.m; sourceTree = "<group>"; };
@@ -86,6 +109,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6702CC241311876000470BA8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6702CC451311A14A00470BA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6702CC4A1311A14A00470BA8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,8 +145,6 @@
 		6702CC1B1310539600470BA8 /* Xcode Project File Parser Builder */ = {
 			isa = PBXGroup;
 			children = (
-				67BF85BD13104B4B0004228D /* XcodeProjectFileParserBuilder.h */,
-				67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */,
 			);
 			name = "Xcode Project File Parser Builder";
 			sourceTree = "<group>";
@@ -160,6 +189,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6702CC4B1311A14A00470BA8 /* xcodeprojreadergenerator */ = {
+			isa = PBXGroup;
+			children = (
+				6702CC4E1311A14B00470BA8 /* Supporting Files */,
+				67BF85BD13104B4B0004228D /* XcodeProjectFileParserBuilder.h */,
+				67BF85BE13104B4B0004228D /* XcodeProjectFileParserBuilder.m */,
+				6702CC5F1311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.h */,
+				6702CC601311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.m */,
+			);
+			path = xcodeprojreadergenerator;
+			sourceTree = "<group>";
+		};
+		6702CC4E1311A14B00470BA8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6702CC4C1311A14B00470BA8 /* main.m */,
+				6702CC501311A14B00470BA8 /* xcodeprojreadergenerator.1 */,
+				6702CC4F1311A14B00470BA8 /* xcodeprojreadergenerator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		67BF85AE13104A450004228D /* ddcli */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +233,7 @@
 			children = (
 				67EA58A91308B31D00D9D5CD /* XcodeReader */,
 				6702CC251311876000470BA8 /* xcodeprojanalyzer */,
+				6702CC4B1311A14A00470BA8 /* xcodeprojreadergenerator */,
 				67EA58A61308B31D00D9D5CD /* Frameworks */,
 				67EA58A41308B31D00D9D5CD /* Products */,
 			);
@@ -192,6 +244,7 @@
 			children = (
 				67EA58A31308B31D00D9D5CD /* XcodeReaderTest */,
 				6702CC221311875F00470BA8 /* xcodeprojanalyzer */,
+				6702CC481311A14A00470BA8 /* xcodeprojreadergenerator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +298,23 @@
 			productReference = 6702CC221311875F00470BA8 /* xcodeprojanalyzer */;
 			productType = "com.apple.product-type.tool";
 		};
+		6702CC471311A14A00470BA8 /* xcodeprojreadergenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6702CC511311A14B00470BA8 /* Build configuration list for PBXNativeTarget "xcodeprojreadergenerator" */;
+			buildPhases = (
+				6702CC441311A14A00470BA8 /* Sources */,
+				6702CC451311A14A00470BA8 /* Frameworks */,
+				6702CC461311A14A00470BA8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xcodeprojreadergenerator;
+			productName = xcodeprojreadergenerator;
+			productReference = 6702CC481311A14A00470BA8 /* xcodeprojreadergenerator */;
+			productType = "com.apple.product-type.tool";
+		};
 		67EA58A21308B31D00D9D5CD /* XcodeReaderTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67EA58B11308B31D00D9D5CD /* Build configuration list for PBXNativeTarget "XcodeReaderTest" */;
@@ -281,6 +351,7 @@
 			targets = (
 				67EA58A21308B31D00D9D5CD /* XcodeReaderTest */,
 				6702CC211311875F00470BA8 /* xcodeprojanalyzer */,
+				6702CC471311A14A00470BA8 /* xcodeprojreadergenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -297,6 +368,20 @@
 				6702CC2F131187C400470BA8 /* XcodeProjectParser.m in Sources */,
 				6702CC271311876000470BA8 /* main.m in Sources */,
 				6702CC3B131188CB00470BA8 /* XcodeProjectAnalyzerApp.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6702CC441311A14A00470BA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6702CC551311A16D00470BA8 /* XcodeProjectFileParserBuilder.m in Sources */,
+				6702CC571311A16D00470BA8 /* DDCliApplication.m in Sources */,
+				6702CC591311A16D00470BA8 /* DDCliParseException.m in Sources */,
+				6702CC5B1311A16D00470BA8 /* DDCliUtil.m in Sources */,
+				6702CC5E1311A16D00470BA8 /* DDGetoptLongParser.m in Sources */,
+				6702CC4D1311A14B00470BA8 /* main.m in Sources */,
+				6702CC611311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +425,32 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xcodeprojanalyzer/xcodeprojanalyzer-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6702CC521311A14B00470BA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xcodeprojreadergenerator/xcodeprojreadergenerator-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6702CC531311A14B00470BA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xcodeprojreadergenerator/xcodeprojreadergenerator-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -413,6 +524,16 @@
 				6702CC2D1311876000470BA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6702CC511311A14B00470BA8 /* Build configuration list for PBXNativeTarget "xcodeprojreadergenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6702CC521311A14B00470BA8 /* Debug */,
+				6702CC531311A14B00470BA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		67EA589D1308B31D00D9D5CD /* Build configuration list for PBXProject "XcodeReader" */ = {
 			isa = XCConfigurationList;

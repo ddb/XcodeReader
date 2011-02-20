@@ -31,8 +31,8 @@
         [source appendFormat:@"@implementation XP%@\n", className];
         for (NSString* slotName in sortedSlots) {
             id slotType = [slotDefs objectForKey:slotName];
-            if ([slotType isKindOfClass:[NSSet class]]) {
-                [propDeclarations appendFormat:@"// types in %@: %@\n", slotName, [[slotType allObjects] componentsJoinedByString:@", "]];
+            if ([slotType isKindOfClass:[NSArray class]]) {
+                [propDeclarations appendFormat:@"// types in %@: %@\n", slotName, [slotType componentsJoinedByString:@", "]];
                 [propDeclarations appendFormat:@"@property (nonatomic, retain) NSArray* %@;\n", slotName];
                 [slotDeclarations appendFormat:@"    NSArray* %@;\n", slotName];
             } else {
@@ -58,10 +58,10 @@
         
         for (NSString* slotName in sortedSlots) {
             NSString* slotType = [slotDefs objectForKey:slotName];
-            if ([slotType isKindOfClass:[NSSet class]]) {
+            if ([slotType isKindOfClass:[NSArray class]]) {
                 [connect appendFormat:@"    NSMutableArray* %@Array = [NSMutableArray array];\n", slotName];
                 [connect appendFormat:@"    for (id objectName in [dict objectForKey:@\"%@\"]) {\n", slotName];
-                if ([(NSSet*)slotType containsObject:@"NSString"] || [(NSSet*)slotType containsObject:@"NSDictionary"]) {
+                if ([(NSArray*)slotType containsObject:@"NSString"] || [(NSArray*)slotType containsObject:@"NSDictionary"]) {
                     [connect appendFormat:@"        [%@Array addObject:objectName];\n", slotName];
                 } else {
                     [connect appendFormat:@"        [%@Array addObject:[store objectForKey:objectName]];\n", slotName];

@@ -73,8 +73,23 @@
     
     self.staticTypes = [NSMutableDictionary dictionary];
     [self processURL:[NSURL fileURLWithPath:[[arguments objectAtIndex:0] stringByExpandingTildeInPath]]];
-    ddprintf(@"\nstaticTypes: %@\n", self.staticTypes);
-    [self.staticTypes writeToURL:[NSURL fileURLWithPath:[[arguments objectAtIndex:1] stringByExpandingTildeInPath]] atomically:NO];
+    NSString* plistFileName = [[arguments objectAtIndex:1] stringByExpandingTildeInPath];
+    ddprintf(@"\nstaticTypes: (%@) %@\n", plistFileName, self.staticTypes);
+    
+    // turn the NSSet objects into NSArray objects, since NSSet's cannot go into a property list
+    for (NSString* typeKey in [self.staticTypes allKeys]) {
+        NSMutableDictionary* typeDict = [self.staticTypes objectForKey:typeKey];
+        for (NSString* slotName in [typeDict allKeys]) {
+            id slotObject = [typeDict objectForKey:slotName];
+            if ([slotObject isKindOfClass:[NSSet class]]) {
+                [typeDict setValue:[slotObject allObjects] forKey:slotName];
+            }
+        }
+    }
+    
+    if (![self.staticTypes writeToFile:plistFileName atomically:NO]) {
+        ddprintf(@"hmm\n");
+    }
     
     return EXIT_SUCCESS;
 }
