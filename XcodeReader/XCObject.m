@@ -10,20 +10,18 @@
 
 
 @implementation XCObject
-@synthesize xcodeObjectType;
 
-- (id)init
-{
+@synthesize xcodeObjectType;
+@synthesize originalKey;
+
+- (id)init {
     self = [super init];
     if (self) {
-        // Initialization code here.
     }
-    
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [super dealloc];
 }
 
@@ -33,10 +31,11 @@
 - (void)connectFromDictionary:(NSDictionary*)dict usingObjectStore:(NSDictionary*)store {
 }
 
-+ (XCObject*)XCObjectFromDictionary:(NSDictionary*)dict {
++ (XCObject*)XCObjectFromDictionary:(NSDictionary*)dict forKey:(NSString*)key {
     NSString* objIsa = [dict objectForKey:@"isa"];
     XCObject* xcobj = [[[NSClassFromString([NSString stringWithFormat:@"XP%@", objIsa]) alloc] init] autorelease];
     xcobj.xcodeObjectType = objIsa;
+    xcobj.originalKey = key;
     [xcobj inflateFromDictionary:dict];
     return xcobj;
 }

@@ -17,7 +17,8 @@
 - (void)loadProjectWithRootName:(NSString*)rootName {
     NSMutableDictionary* store = [NSMutableDictionary dictionary];
     for (NSString* objectName in [self.objects allKeys]) {
-        [store setObject:[XCObject XCObjectFromDictionary:[self.objects objectForKey:objectName]]
+        [store setObject:[XCObject XCObjectFromDictionary:[self.objects objectForKey:objectName] 
+                                                   forKey:objectName]
                   forKey:objectName];
     }
     for (NSString* objectName in [self.objects allKeys]) {

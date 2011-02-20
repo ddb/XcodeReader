@@ -14,11 +14,12 @@
 }
 
 @property (nonatomic, retain) NSString* xcodeObjectType;
+@property (nonatomic, retain) NSString* originalKey;
 
 - (void)inflateFromDictionary:(NSDictionary*)dict;
 - (void)connectFromDictionary:(NSDictionary*)dict usingObjectStore:(NSDictionary*)store;
 
-+ (XCObject*)XCObjectFromDictionary:(NSDictionary*)dict;
++ (XCObject*)XCObjectFromDictionary:(NSDictionary*)dict forKey:(NSString*)key;
 
 @end
 
