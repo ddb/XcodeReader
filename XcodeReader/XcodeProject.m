@@ -13,13 +13,34 @@
 
 @synthesize objects;
 @synthesize rootObject;
+@synthesize typeGroups;
+@synthesize archiveVersion;
+@synthesize objectVersion;
+@synthesize classes;
+
+/*
+ 
+ // !$*UTF8*$!
+ {
+ archiveVersion = 1;
+ classes = {
+ };
+ objectVersion = 46;
+ 
+ */
 
 - (void)loadProjectWithRootName:(NSString*)rootName {
     NSMutableDictionary* store = [NSMutableDictionary dictionary];
     for (NSString* objectName in [self.objects allKeys]) {
-        [store setObject:[XCObject XCObjectFromDictionary:[self.objects objectForKey:objectName] 
-                                                   forKey:objectName]
-                  forKey:objectName];
+        XCObject* obj = [XCObject XCObjectFromDictionary:[self.objects objectForKey:objectName] 
+                                                  forKey:objectName];
+        [store setObject:obj forKey:objectName];
+        NSMutableArray* objTypeArray = [self.typeGroups objectForKey:obj.xcodeObjectType];
+        if (!objTypeArray) {
+            objTypeArray = [NSMutableArray array];
+            [self.typeGroups setValue:objTypeArray forKey:obj.xcodeObjectType];
+        }
+        [objTypeArray addObject:obj];
     }
     for (NSString* objectName in [self.objects allKeys]) {
         [[store objectForKey:objectName] connectFromDictionary:[self.objects objectForKey:objectName] 
@@ -33,6 +54,9 @@
     if (self) {
         self.objects = [project objectForKey:@"objects"];
         [self loadProjectWithRootName:[project objectForKey:@"rootObject"]];
+        self.archiveVersion = [project objectForKey:@"archiveVersion"];
+        self.objectVersion = [project objectForKey:@"objectVersion"];
+        self.classes = [project objectForKey:@"classes"];
     }
     
     return self;

@@ -44,6 +44,10 @@
     NSURL* xcodeProjectFile = [NSURL fileURLWithPath:[arguments objectAtIndex:0]];
     XcodeProject* xcp = [[XcodeProject alloc] initFromURL:xcodeProjectFile];
     
+    NSLog(@"objectVersion: %@", xcp.objectVersion);
+    NSLog(@"archiveVersion: %@", xcp.archiveVersion);
+    NSLog(@"classes: (%@) %@", [xcp.classes class], xcp.classes);
+    
     for (id target in xcp.rootObject.targets) {
         if ([target isKindOfClass:[XPPBXNativeTarget class]]) {
             XPPBXNativeTarget* nativeTarget = (XPPBXNativeTarget*)target;

@@ -11,11 +11,20 @@
 
 @interface XcodeProject : NSObject {
     NSDictionary* objects;
+    NSMutableDictionary* typeGroups;
     XPPBXProject* rootObject;
+    NSString* archiveVersion;
+    NSString* objectVersion;
+    id classes;
 }
 
 @property (retain) NSDictionary* objects;
+@property (retain) NSMutableDictionary* typeGroups;
 @property (retain) XPPBXProject* rootObject;
+
+@property (retain) NSString* archiveVersion;
+@property (retain) NSString* objectVersion;
+@property (retain) id classes;
 
 - (id)initFromURL:(NSURL*)projectURL;
 
