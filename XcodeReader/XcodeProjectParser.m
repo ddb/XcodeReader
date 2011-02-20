@@ -8,6 +8,7 @@
 
 #import "XcodeProjectParser.h"
 #import <objc/runtime.h>
+#import "DDCliUtil.h"
 
 @implementation XcodeProjectParser
 
@@ -64,17 +65,14 @@
     if ([obj isKindOfClass:[NSArray class]]) {
         return @"NSArray";
     }
-    return [NSString stringWithCString:class_getName([obj class]) encoding:NSASCIIStringEncoding];
+    return [NSString stringWithCString:class_getName([obj class]) 
+                              encoding:NSASCIIStringEncoding];
 }
 
-NSMutableDictionary* staticTypes = nil;
-
-- (void)findTypes {
-    if (!staticTypes) {
-        staticTypes = [NSMutableDictionary dictionary];
-    }
+- (void)findTypesUsingDictionary:(NSMutableDictionary*)staticTypes {
     for (NSDictionary* obj in [self.objects allValues]) {
         NSString* typeString = [self typeStringForObject:obj];
+        ddprintf(@"    type: %@\n", typeString);
         NSMutableDictionary* objType = [staticTypes objectForKey:typeString];
         if (!objType) {
             objType = [NSMutableDictionary dictionary];
@@ -104,10 +102,6 @@ NSMutableDictionary* staticTypes = nil;
             }
         }
     }
-}
-
-- (void)walkProject {
-    [self findTypes];
 }
 
 @end

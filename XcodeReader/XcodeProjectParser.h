@@ -20,6 +20,6 @@
 - (id)initWithProject:(NSDictionary*)project;
 - (id)objectNamed:(NSString*)name;
 
-- (void)walkProject;
+- (void)findTypesUsingDictionary:(NSMutableDictionary*)staticTypes;
 
 @end
