@@ -23,6 +23,7 @@
 		6702CC5B1311A16D00470BA8 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B413104A450004228D /* DDCliUtil.m */; };
 		6702CC5E1311A16D00470BA8 /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B713104A450004228D /* DDGetoptLongParser.m */; };
 		6702CC611311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6702CC601311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.m */; };
+		673C06DE1311C9AE00AE4535 /* XcodeParserObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 673C06DC1311C9AE00AE4535 /* XcodeParserObjects.m */; };
 		67BF85B813104A450004228D /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B013104A450004228D /* DDCliApplication.m */; };
 		67BF85B913104A450004228D /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B213104A450004228D /* DDCliParseException.m */; };
 		67BF85BA13104A450004228D /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF85B413104A450004228D /* DDCliUtil.m */; };
@@ -77,6 +78,8 @@
 		6702CC501311A14B00470BA8 /* xcodeprojreadergenerator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = xcodeprojreadergenerator.1; sourceTree = "<group>"; };
 		6702CC5F1311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeProjectFileParserBuilderApp.h; sourceTree = "<group>"; };
 		6702CC601311A1D100470BA8 /* XcodeProjectFileParserBuilderApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeProjectFileParserBuilderApp.m; sourceTree = "<group>"; };
+		673C06DC1311C9AE00AE4535 /* XcodeParserObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeParserObjects.m; sourceTree = "<group>"; };
+		673C06DD1311C9AE00AE4535 /* XcodeParserObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeParserObjects.h; sourceTree = "<group>"; };
 		67BF85AF13104A450004228D /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
 		67BF85B013104A450004228D /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
 		67BF85B113104A450004228D /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 			children = (
 				67EA58B41308B33300D9D5CD /* XCObject.h */,
 				67EA58B51308B33300D9D5CD /* XCObject.m */,
+				673C06DC1311C9AE00AE4535 /* XcodeParserObjects.m */,
+				673C06DD1311C9AE00AE4535 /* XcodeParserObjects.h */,
 				67EA58B61308B33300D9D5CD /* XcodeProject.h */,
 				67EA58B71308B33300D9D5CD /* XcodeProject.m */,
 			);
@@ -381,6 +386,7 @@
 				67BF85BB13104A450004228D /* DDGetoptLongParser.m in Sources */,
 				67BF85C613104D8C0004228D /* XcodeProjectTestMain.m in Sources */,
 				67BF85C713104D8C0004228D /* XcodeProjectTestApp.m in Sources */,
+				673C06DE1311C9AE00AE4535 /* XcodeParserObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

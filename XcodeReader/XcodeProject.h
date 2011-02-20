@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XCObject.h"
+#import "XcodeParserObjects.h"
 
 @interface XcodeProject : NSObject {
     NSDictionary* objects;

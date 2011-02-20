@@ -16,6 +16,10 @@
                           usingXcodeTypes:(NSDictionary*)xcodeProjectTypes {
     NSMutableString* header = [NSMutableString string];
     NSMutableString* source = [NSMutableString string];
+
+    [header appendFormat:@"#import \"XCObject.h\"\n\n"];
+    [source appendFormat:@"#import \"%@\"\n\n", [interfaceFilePath lastPathComponent]];
+    
     NSArray* sortedClasses = [[xcodeProjectTypes allKeys] sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
     for (NSString* className in sortedClasses) {
         [header appendFormat:@"@class XP%@;\n", className];
@@ -28,7 +32,7 @@
         NSMutableString* slotDeclarations = [NSMutableString string];
         NSMutableString* propDeclarations = [NSMutableString string];
         
-        [source appendFormat:@"@implementation XP%@\n", className];
+        [source appendFormat:@"@implementation XP%@\n\n", className];
         for (NSString* slotName in sortedSlots) {
             id slotType = [slotDefs objectForKey:slotName];
             if ([slotType isKindOfClass:[NSArray class]]) {
@@ -44,17 +48,20 @@
             }
             [source appendFormat:@"@synthesize %@;\n", slotName];
         }
+        [source appendString:@"\n"];
         
         [header appendFormat:@"@interface XP%@ : XCObject {\n", className];
         [header appendString:slotDeclarations];
-        [header appendFormat:@"}\n"];
+        [header appendFormat:@"}\n\n"];
         [header appendString:propDeclarations];
         
         NSMutableString* inflate = [NSMutableString string];
         NSMutableString* connect = [NSMutableString string];
+        NSMutableString* writeSlots = [NSMutableString string];
         
         [inflate appendFormat:@"- (void)inflateFromDictionary:(NSDictionary*)dict {\n"];
         [connect appendFormat:@"- (void)connectFromDictionary:(NSDictionary*)dict usingObjectStore:(NSDictionary*)store {\n"];
+        [writeSlots appendFormat:@"- (void)writeSlotsOnMutableString:(NSMutableString*)output {\n"];
         
         for (NSString* slotName in sortedSlots) {
             NSString* slotType = [slotDefs objectForKey:slotName];
@@ -68,26 +75,38 @@
                 }
                 [connect appendFormat:@"    }\n"];
                 [connect appendFormat:@"    self.%@ = %@Array;\n", slotName, slotName];
+                
+                [writeSlots appendFormat:@"    [self serializeArray:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName];
             } else if ([slotType isEqualToString:@"NSString"] || [slotType isEqualToString:@"NSDictionary"]) {
                 [inflate appendFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", slotName, slotName];
+                
+                if ([slotType isEqualToString:@"NSString"]) {
+                    [writeSlots appendFormat:@"    [self serializeString:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName];
+                } else if ([slotType isEqualToString:@"NSDictionary"]) {
+                    [writeSlots appendFormat:@"    [self serializeDictionary:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName];
+                }
             } else {
                 [connect appendFormat:@"    self.%@ = [store objectForKey:[dict objectForKey:@\"%@\"]];\n", slotName, slotName];
+                [writeSlots appendFormat:@"    [self serializePointer:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName];
             }
         }
         
-        [inflate appendFormat:@"}\n"];
-        [connect appendFormat:@"}\n"];
+        [inflate appendFormat:@"}\n\n"];
+        [connect appendFormat:@"}\n\n"];
+        [writeSlots appendFormat:@"}\n\n"];
         
         [source appendString:inflate];
         [source appendString:connect];
+        [source appendString:writeSlots];
         
         [source appendFormat:@"- (void)dealloc {\n"];
         for (NSString* slotName in sortedSlots) {
             [source appendFormat:@"    [%@ release], %@ = nil;\n", slotName, slotName];
         }
         [source appendFormat:@"    [super dealloc];\n"];
-        [source appendFormat:@"}\n"];
+        [source appendFormat:@"}\n\n"];
         
+        [header appendString:@"\n"];
         [header appendFormat:@"@end\n\n"];
         [source appendFormat:@"@end\n\n"];
     }
