@@ -142,13 +142,6 @@
 			name = "Xcode Project File Data";
 			sourceTree = "<group>";
 		};
-		6702CC1B1310539600470BA8 /* Xcode Project File Parser Builder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Xcode Project File Parser Builder";
-			sourceTree = "<group>";
-		};
 		6702CC1C131053B400470BA8 /* Example Parser Use */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,14 +150,6 @@
 				67BF85C313104D8C0004228D /* XcodeProjectTestMain.m */,
 			);
 			name = "Example Parser Use";
-			sourceTree = "<group>";
-		};
-		6702CC1D131053F200470BA8 /* Meta */ = {
-			isa = PBXGroup;
-			children = (
-				6702CC1B1310539600470BA8 /* Xcode Project File Parser Builder */,
-			);
-			name = Meta;
 			sourceTree = "<group>";
 		};
 		6702CC251311876000470BA8 /* xcodeprojanalyzer */ = {
@@ -260,7 +245,6 @@
 		67EA58A91308B31D00D9D5CD /* XcodeReader */ = {
 			isa = PBXGroup;
 			children = (
-				6702CC1D131053F200470BA8 /* Meta */,
 				6702CC191310537100470BA8 /* Xcode Project File Data */,
 				6702CC1C131053B400470BA8 /* Example Parser Use */,
 				67EA58AE1308B31D00D9D5CD /* XcodeReader.1 */,

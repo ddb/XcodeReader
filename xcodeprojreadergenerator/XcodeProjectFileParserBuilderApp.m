@@ -54,9 +54,12 @@
         return EX_USAGE;
     }
     
-    NSDictionary* staticTypesDict = [NSDictionary dictionaryWithContentsOfFile:[[arguments objectAtIndex:0] stringByExpandingTildeInPath]];
-    [XcodeProjectFileParserBuilder buildSourceImplementationFilePath:[NSString stringWithFormat:@"%@.m", [[arguments objectAtIndex:1] stringByExpandingTildeInPath]] 
-                                               withInterfaceFilePath:[NSString stringWithFormat:@"%@.h", [[arguments objectAtIndex:1] stringByExpandingTildeInPath]] 
+    NSString* staticTypesDictionaryPlistFullPath = [[arguments objectAtIndex:0] stringByExpandingTildeInPath];
+    NSString* targetFileNameFullPath = [[arguments objectAtIndex:1] stringByExpandingTildeInPath];
+    
+    NSDictionary* staticTypesDict = [NSDictionary dictionaryWithContentsOfFile:staticTypesDictionaryPlistFullPath];
+    [XcodeProjectFileParserBuilder buildSourceImplementationFilePath:[NSString stringWithFormat:@"%@.m", targetFileNameFullPath] 
+                                               withInterfaceFilePath:[NSString stringWithFormat:@"%@.h", targetFileNameFullPath] 
                                                      usingXcodeTypes:staticTypesDict];
     
     return EXIT_SUCCESS;
