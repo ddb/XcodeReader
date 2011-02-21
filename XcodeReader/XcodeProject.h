@@ -28,4 +28,6 @@
 
 - (id)initFromURL:(NSURL*)projectURL;
 
+- (NSString*)asString;
+
 @end

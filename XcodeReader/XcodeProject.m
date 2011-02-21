@@ -31,6 +31,7 @@
 
 - (void)loadProjectWithRootName:(NSString*)rootName {
     NSMutableDictionary* store = [NSMutableDictionary dictionary];
+    self.typeGroups = [NSMutableDictionary dictionary];
     for (NSString* objectName in [self.objects allKeys]) {
         XCObject* obj = [XCObject XCObjectFromDictionary:[self.objects objectForKey:objectName] 
                                                   forKey:objectName];
@@ -71,6 +72,30 @@
                                                              format:&theFormat
                                                    errorDescription:nil];
     return [self initWithProject:contents];
+}
+
+- (NSString*)asString {
+    NSMutableString* output = [NSMutableString string];
+    [output appendString:@"// !$*UTF8*$!\n{\n"];
+    [output appendFormat:@"    archiveVersion = %@;\n", self.archiveVersion];
+    [output appendFormat:@"    classes = {\n"];
+    [output appendFormat:@"    };\n"];
+    [output appendFormat:@"    objectVersion = %@;\n", self.objectVersion];
+    [output appendString:@"    objects = {\n"];
+    
+    NSArray* types = [[self.typeGroups allKeys] sortedArrayUsingSelector:@selector(compare:)];
+    for (NSString* typeName in types) {
+        [output appendFormat:@"\n/* Begin %@ section */\n", typeName];
+        for (XCObject* xco in [self.typeGroups objectForKey:typeName]) {
+            [xco writeOnMutableString:output];
+        }
+        [output appendFormat:@"/* End %@ section */\n", typeName];
+    }
+    
+    [output appendString:@"    };\n"];
+    [output appendFormat:@"    rootObject = %@; /* project file */\n", self.rootObject.originalKey];
+    [output appendString:@"}\n"];
+    return output;
 }
 
 - (void)dealloc

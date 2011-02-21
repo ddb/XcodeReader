@@ -19,12 +19,15 @@
 - (void)inflateFromDictionary:(NSDictionary*)dict;
 - (void)connectFromDictionary:(NSDictionary*)dict usingObjectStore:(NSDictionary*)store;
 
+- (void)writeOnMutableString:(NSMutableString*)output;
 - (void)writeSlotsOnMutableString:(NSMutableString*)output;
 
 - (void)serializeString:(NSString*)s named:(NSString*)name onMutableString:(NSMutableString*)output;
 - (void)serializeDictionary:(NSDictionary*)dict named:(NSString*)name onMutableString:(NSMutableString*)output;
 - (void)serializeArray:(NSArray*)a named:(NSString*)name onMutableString:(NSMutableString*)output;
 - (void)serializePointer:(XCObject*)xco named:(NSString*)name onMutableString:(NSMutableString*)output;
+
+- (NSString*)xcodeSavedFileObjectComment;
 
 + (XCObject*)XCObjectFromDictionary:(NSDictionary*)dict forKey:(NSString*)key;
 
