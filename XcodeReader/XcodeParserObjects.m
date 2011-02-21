@@ -28,11 +28,11 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildConfigurationList) [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
-    if (self.buildPhases) [self serializeArray:self.buildPhases named:@"buildPhases" onMutableString:output];
-    if (self.dependencies) [self serializeArray:self.dependencies named:@"dependencies" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.productName) [self serializeString:self.productName named:@"productName" onMutableString:output];
+    [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
+    [self serializeArray:self.buildPhases named:@"buildPhases" onMutableString:output];
+    [self serializeArray:self.dependencies named:@"dependencies" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.productName named:@"productName" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -70,11 +70,11 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildActionMask) [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
-    if (self.contextName) [self serializeString:self.contextName named:@"contextName" onMutableString:output];
-    if (self.files) [self serializeArray:self.files named:@"files" onMutableString:output];
-    if (self.isSharedContext) [self serializeString:self.isSharedContext named:@"isSharedContext" onMutableString:output];
-    if (self.runOnlyForDeploymentPostprocessing) [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
+    [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
+    [self serializeString:self.contextName named:@"contextName" onMutableString:output];
+    [self serializeArray:self.files named:@"files" onMutableString:output];
+    [self serializeString:self.isSharedContext named:@"isSharedContext" onMutableString:output];
+    [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -102,8 +102,8 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.path) [self serializeString:self.path named:@"path" onMutableString:output];
-    if (self.refType) [self serializeString:self.refType named:@"refType" onMutableString:output];
+    [self serializeString:self.path named:@"path" onMutableString:output];
+    [self serializeString:self.refType named:@"refType" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -144,14 +144,14 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildConfigurationList) [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
-    if (self.buildPhases) [self serializeArray:self.buildPhases named:@"buildPhases" onMutableString:output];
-    if (self.buildSettings) [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.productInstallPath) [self serializeString:self.productInstallPath named:@"productInstallPath" onMutableString:output];
-    if (self.productName) [self serializeString:self.productName named:@"productName" onMutableString:output];
-    if (self.productReference) [self serializePointer:self.productReference named:@"productReference" onMutableString:output];
-    if (self.productSettingsXML) [self serializeString:self.productSettingsXML named:@"productSettingsXML" onMutableString:output];
+    [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
+    [self serializeArray:self.buildPhases named:@"buildPhases" onMutableString:output];
+    [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.productInstallPath named:@"productInstallPath" onMutableString:output];
+    [self serializeString:self.productName named:@"productName" onMutableString:output];
+    [self serializePointer:self.productReference named:@"productReference" onMutableString:output];
+    [self serializeString:self.productSettingsXML named:@"productSettingsXML" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -182,8 +182,8 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.fileRef) [self serializePointer:self.fileRef named:@"fileRef" onMutableString:output];
-    if (self.settings) [self serializeDictionary:self.settings named:@"settings" onMutableString:output];
+    [self serializePointer:self.fileRef named:@"fileRef" onMutableString:output];
+    [self serializeDictionary:self.settings named:@"settings" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -220,12 +220,12 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.compilerSpec) [self serializeString:self.compilerSpec named:@"compilerSpec" onMutableString:output];
-    if (self.filePatterns) [self serializeString:self.filePatterns named:@"filePatterns" onMutableString:output];
-    if (self.fileType) [self serializeString:self.fileType named:@"fileType" onMutableString:output];
-    if (self.isEditable) [self serializeString:self.isEditable named:@"isEditable" onMutableString:output];
-    if (self.outputFiles) [self serializeArray:self.outputFiles named:@"outputFiles" onMutableString:output];
-    if (self.script) [self serializeString:self.script named:@"script" onMutableString:output];
+    [self serializeString:self.compilerSpec named:@"compilerSpec" onMutableString:output];
+    [self serializeString:self.filePatterns named:@"filePatterns" onMutableString:output];
+    [self serializeString:self.fileType named:@"fileType" onMutableString:output];
+    [self serializeString:self.isEditable named:@"isEditable" onMutableString:output];
+    [self serializeArray:self.outputFiles named:@"outputFiles" onMutableString:output];
+    [self serializeString:self.script named:@"script" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -254,8 +254,8 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildSettings) [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -284,10 +284,10 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.containerPortal) [self serializePointer:self.containerPortal named:@"containerPortal" onMutableString:output];
-    if (self.proxyType) [self serializeString:self.proxyType named:@"proxyType" onMutableString:output];
-    if (self.remoteGlobalIDString) [self serializePointer:self.remoteGlobalIDString named:@"remoteGlobalIDString" onMutableString:output];
-    if (self.remoteInfo) [self serializeString:self.remoteInfo named:@"remoteInfo" onMutableString:output];
+    [self serializePointer:self.containerPortal named:@"containerPortal" onMutableString:output];
+    [self serializeString:self.proxyType named:@"proxyType" onMutableString:output];
+    [self serializePointer:self.remoteGlobalIDString named:@"remoteGlobalIDString" onMutableString:output];
+    [self serializeString:self.remoteInfo named:@"remoteInfo" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -326,12 +326,12 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildActionMask) [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
-    if (self.dstPath) [self serializeString:self.dstPath named:@"dstPath" onMutableString:output];
-    if (self.dstSubfolderSpec) [self serializeString:self.dstSubfolderSpec named:@"dstSubfolderSpec" onMutableString:output];
-    if (self.files) [self serializeArray:self.files named:@"files" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.runOnlyForDeploymentPostprocessing) [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
+    [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
+    [self serializeString:self.dstPath named:@"dstPath" onMutableString:output];
+    [self serializeString:self.dstSubfolderSpec named:@"dstSubfolderSpec" onMutableString:output];
+    [self serializeArray:self.files named:@"files" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -388,22 +388,22 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.explicitFileType) [self serializeString:self.explicitFileType named:@"explicitFileType" onMutableString:output];
-    if (self.fileEncoding) [self serializeString:self.fileEncoding named:@"fileEncoding" onMutableString:output];
-    if (self.includeInIndex) [self serializeString:self.includeInIndex named:@"includeInIndex" onMutableString:output];
-    if (self.indentWidth) [self serializeString:self.indentWidth named:@"indentWidth" onMutableString:output];
-    if (self.languageSpecificationIdentifier) [self serializeString:self.languageSpecificationIdentifier named:@"languageSpecificationIdentifier" onMutableString:output];
-    if (self.lastKnownFileType) [self serializeString:self.lastKnownFileType named:@"lastKnownFileType" onMutableString:output];
-    if (self.lineEnding) [self serializeString:self.lineEnding named:@"lineEnding" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.path) [self serializeString:self.path named:@"path" onMutableString:output];
-    if (self.plistStructureDefinitionIdentifier) [self serializeString:self.plistStructureDefinitionIdentifier named:@"plistStructureDefinitionIdentifier" onMutableString:output];
-    if (self.refType) [self serializeString:self.refType named:@"refType" onMutableString:output];
-    if (self.sourceTree) [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
-    if (self.tabWidth) [self serializeString:self.tabWidth named:@"tabWidth" onMutableString:output];
-    if (self.usesTabs) [self serializeString:self.usesTabs named:@"usesTabs" onMutableString:output];
-    if (self.wrapsLines) [self serializeString:self.wrapsLines named:@"wrapsLines" onMutableString:output];
-    if (self.xcLanguageSpecificationIdentifier) [self serializeString:self.xcLanguageSpecificationIdentifier named:@"xcLanguageSpecificationIdentifier" onMutableString:output];
+    [self serializeString:self.explicitFileType named:@"explicitFileType" onMutableString:output];
+    [self serializeString:self.fileEncoding named:@"fileEncoding" onMutableString:output];
+    [self serializeString:self.includeInIndex named:@"includeInIndex" onMutableString:output];
+    [self serializeString:self.indentWidth named:@"indentWidth" onMutableString:output];
+    [self serializeString:self.languageSpecificationIdentifier named:@"languageSpecificationIdentifier" onMutableString:output];
+    [self serializeString:self.lastKnownFileType named:@"lastKnownFileType" onMutableString:output];
+    [self serializeString:self.lineEnding named:@"lineEnding" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.path named:@"path" onMutableString:output];
+    [self serializeString:self.plistStructureDefinitionIdentifier named:@"plistStructureDefinitionIdentifier" onMutableString:output];
+    [self serializeString:self.refType named:@"refType" onMutableString:output];
+    [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
+    [self serializeString:self.tabWidth named:@"tabWidth" onMutableString:output];
+    [self serializeString:self.usesTabs named:@"usesTabs" onMutableString:output];
+    [self serializeString:self.wrapsLines named:@"wrapsLines" onMutableString:output];
+    [self serializeString:self.xcLanguageSpecificationIdentifier named:@"xcLanguageSpecificationIdentifier" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -444,9 +444,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.path) [self serializeString:self.path named:@"path" onMutableString:output];
-    if (self.refType) [self serializeString:self.refType named:@"refType" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.path named:@"path" onMutableString:output];
+    [self serializeString:self.refType named:@"refType" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -478,9 +478,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildActionMask) [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
-    if (self.files) [self serializeArray:self.files named:@"files" onMutableString:output];
-    if (self.runOnlyForDeploymentPostprocessing) [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
+    [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
+    [self serializeArray:self.files named:@"files" onMutableString:output];
+    [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -516,11 +516,11 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.children) [self serializeArray:self.children named:@"children" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.path) [self serializeString:self.path named:@"path" onMutableString:output];
-    if (self.refType) [self serializeString:self.refType named:@"refType" onMutableString:output];
-    if (self.sourceTree) [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
+    [self serializeArray:self.children named:@"children" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.path named:@"path" onMutableString:output];
+    [self serializeString:self.refType named:@"refType" onMutableString:output];
+    [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -554,9 +554,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildActionMask) [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
-    if (self.files) [self serializeArray:self.files named:@"files" onMutableString:output];
-    if (self.runOnlyForDeploymentPostprocessing) [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
+    [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
+    [self serializeArray:self.files named:@"files" onMutableString:output];
+    [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -592,13 +592,13 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildArgumentsString) [self serializeString:self.buildArgumentsString named:@"buildArgumentsString" onMutableString:output];
-    if (self.buildConfigurationList) [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
-    if (self.buildToolPath) [self serializeString:self.buildToolPath named:@"buildToolPath" onMutableString:output];
-    if (self.buildWorkingDirectory) [self serializeString:self.buildWorkingDirectory named:@"buildWorkingDirectory" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.passBuildSettingsInEnvironment) [self serializeString:self.passBuildSettingsInEnvironment named:@"passBuildSettingsInEnvironment" onMutableString:output];
-    if (self.productName) [self serializeString:self.productName named:@"productName" onMutableString:output];
+    [self serializeString:self.buildArgumentsString named:@"buildArgumentsString" onMutableString:output];
+    [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
+    [self serializeString:self.buildToolPath named:@"buildToolPath" onMutableString:output];
+    [self serializeString:self.buildWorkingDirectory named:@"buildWorkingDirectory" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.passBuildSettingsInEnvironment named:@"passBuildSettingsInEnvironment" onMutableString:output];
+    [self serializeString:self.productName named:@"productName" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -656,16 +656,16 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildConfigurationList) [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
-    if (self.buildPhases) [self serializeArray:self.buildPhases named:@"buildPhases" onMutableString:output];
-    if (self.buildRules) [self serializeArray:self.buildRules named:@"buildRules" onMutableString:output];
-    if (self.buildSettings) [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
-    if (self.dependencies) [self serializeArray:self.dependencies named:@"dependencies" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.productInstallPath) [self serializeString:self.productInstallPath named:@"productInstallPath" onMutableString:output];
-    if (self.productName) [self serializeString:self.productName named:@"productName" onMutableString:output];
-    if (self.productReference) [self serializePointer:self.productReference named:@"productReference" onMutableString:output];
-    if (self.productType) [self serializeString:self.productType named:@"productType" onMutableString:output];
+    [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
+    [self serializeArray:self.buildPhases named:@"buildPhases" onMutableString:output];
+    [self serializeArray:self.buildRules named:@"buildRules" onMutableString:output];
+    [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
+    [self serializeArray:self.dependencies named:@"dependencies" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.productInstallPath named:@"productInstallPath" onMutableString:output];
+    [self serializeString:self.productName named:@"productName" onMutableString:output];
+    [self serializePointer:self.productReference named:@"productReference" onMutableString:output];
+    [self serializeString:self.productType named:@"productType" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -740,21 +740,21 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.attributes) [self serializeDictionary:self.attributes named:@"attributes" onMutableString:output];
-    if (self.buildConfigurationList) [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
-    if (self.buildSettings) [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
-    if (self.buildStyles) [self serializeArray:self.buildStyles named:@"buildStyles" onMutableString:output];
-    if (self.compatibilityVersion) [self serializeString:self.compatibilityVersion named:@"compatibilityVersion" onMutableString:output];
-    if (self.developmentRegion) [self serializeString:self.developmentRegion named:@"developmentRegion" onMutableString:output];
-    if (self.hasScannedForEncodings) [self serializeString:self.hasScannedForEncodings named:@"hasScannedForEncodings" onMutableString:output];
-    if (self.knownRegions) [self serializeArray:self.knownRegions named:@"knownRegions" onMutableString:output];
-    if (self.mainGroup) [self serializePointer:self.mainGroup named:@"mainGroup" onMutableString:output];
-    if (self.productRefGroup) [self serializePointer:self.productRefGroup named:@"productRefGroup" onMutableString:output];
-    if (self.projectDirPath) [self serializeString:self.projectDirPath named:@"projectDirPath" onMutableString:output];
-    if (self.projectReferences) [self serializeArray:self.projectReferences named:@"projectReferences" onMutableString:output];
-    if (self.projectRoot) [self serializeString:self.projectRoot named:@"projectRoot" onMutableString:output];
-    if (self.shouldCheckCompatibility) [self serializeString:self.shouldCheckCompatibility named:@"shouldCheckCompatibility" onMutableString:output];
-    if (self.targets) [self serializeArray:self.targets named:@"targets" onMutableString:output];
+    [self serializeDictionary:self.attributes named:@"attributes" onMutableString:output];
+    [self serializePointer:self.buildConfigurationList named:@"buildConfigurationList" onMutableString:output];
+    [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
+    [self serializeArray:self.buildStyles named:@"buildStyles" onMutableString:output];
+    [self serializeString:self.compatibilityVersion named:@"compatibilityVersion" onMutableString:output];
+    [self serializeString:self.developmentRegion named:@"developmentRegion" onMutableString:output];
+    [self serializeString:self.hasScannedForEncodings named:@"hasScannedForEncodings" onMutableString:output];
+    [self serializeArray:self.knownRegions named:@"knownRegions" onMutableString:output];
+    [self serializePointer:self.mainGroup named:@"mainGroup" onMutableString:output];
+    [self serializePointer:self.productRefGroup named:@"productRefGroup" onMutableString:output];
+    [self serializeString:self.projectDirPath named:@"projectDirPath" onMutableString:output];
+    [self serializeArray:self.projectReferences named:@"projectReferences" onMutableString:output];
+    [self serializeString:self.projectRoot named:@"projectRoot" onMutableString:output];
+    [self serializeString:self.shouldCheckCompatibility named:@"shouldCheckCompatibility" onMutableString:output];
+    [self serializeArray:self.targets named:@"targets" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -798,11 +798,11 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.fileType) [self serializeString:self.fileType named:@"fileType" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.path) [self serializeString:self.path named:@"path" onMutableString:output];
-    if (self.remoteRef) [self serializePointer:self.remoteRef named:@"remoteRef" onMutableString:output];
-    if (self.sourceTree) [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
+    [self serializeString:self.fileType named:@"fileType" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.path named:@"path" onMutableString:output];
+    [self serializePointer:self.remoteRef named:@"remoteRef" onMutableString:output];
+    [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -836,9 +836,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildActionMask) [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
-    if (self.files) [self serializeArray:self.files named:@"files" onMutableString:output];
-    if (self.runOnlyForDeploymentPostprocessing) [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
+    [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
+    [self serializeArray:self.files named:@"files" onMutableString:output];
+    [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -870,9 +870,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildActionMask) [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
-    if (self.files) [self serializeArray:self.files named:@"files" onMutableString:output];
-    if (self.runOnlyForDeploymentPostprocessing) [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
+    [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
+    [self serializeArray:self.files named:@"files" onMutableString:output];
+    [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -912,13 +912,13 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildActionMask) [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
-    if (self.inputPaths) [self serializeArray:self.inputPaths named:@"inputPaths" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.runOnlyForDeploymentPostprocessing) [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
-    if (self.shellPath) [self serializeString:self.shellPath named:@"shellPath" onMutableString:output];
-    if (self.shellScript) [self serializeString:self.shellScript named:@"shellScript" onMutableString:output];
-    if (self.showEnvVarsInLog) [self serializeString:self.showEnvVarsInLog named:@"showEnvVarsInLog" onMutableString:output];
+    [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
+    [self serializeArray:self.inputPaths named:@"inputPaths" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
+    [self serializeString:self.shellPath named:@"shellPath" onMutableString:output];
+    [self serializeString:self.shellScript named:@"shellScript" onMutableString:output];
+    [self serializeString:self.showEnvVarsInLog named:@"showEnvVarsInLog" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -954,9 +954,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildActionMask) [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
-    if (self.files) [self serializeArray:self.files named:@"files" onMutableString:output];
-    if (self.runOnlyForDeploymentPostprocessing) [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
+    [self serializeString:self.buildActionMask named:@"buildActionMask" onMutableString:output];
+    [self serializeArray:self.files named:@"files" onMutableString:output];
+    [self serializeString:self.runOnlyForDeploymentPostprocessing named:@"runOnlyForDeploymentPostprocessing" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -984,9 +984,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.target) [self serializePointer:self.target named:@"target" onMutableString:output];
-    if (self.targetProxy) [self serializePointer:self.targetProxy named:@"targetProxy" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializePointer:self.target named:@"target" onMutableString:output];
+    [self serializePointer:self.targetProxy named:@"targetProxy" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -1022,11 +1022,11 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.children) [self serializeArray:self.children named:@"children" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
-    if (self.path) [self serializeString:self.path named:@"path" onMutableString:output];
-    if (self.refType) [self serializeString:self.refType named:@"refType" onMutableString:output];
-    if (self.sourceTree) [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
+    [self serializeArray:self.children named:@"children" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializeString:self.path named:@"path" onMutableString:output];
+    [self serializeString:self.refType named:@"refType" onMutableString:output];
+    [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -1056,9 +1056,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.baseConfigurationReference) [self serializePointer:self.baseConfigurationReference named:@"baseConfigurationReference" onMutableString:output];
-    if (self.buildSettings) [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
-    if (self.name) [self serializeString:self.name named:@"name" onMutableString:output];
+    [self serializePointer:self.baseConfigurationReference named:@"baseConfigurationReference" onMutableString:output];
+    [self serializeDictionary:self.buildSettings named:@"buildSettings" onMutableString:output];
+    [self serializeString:self.name named:@"name" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -1090,9 +1090,9 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.buildConfigurations) [self serializeArray:self.buildConfigurations named:@"buildConfigurations" onMutableString:output];
-    if (self.defaultConfigurationIsVisible) [self serializeString:self.defaultConfigurationIsVisible named:@"defaultConfigurationIsVisible" onMutableString:output];
-    if (self.defaultConfigurationName) [self serializeString:self.defaultConfigurationName named:@"defaultConfigurationName" onMutableString:output];
+    [self serializeArray:self.buildConfigurations named:@"buildConfigurations" onMutableString:output];
+    [self serializeString:self.defaultConfigurationIsVisible named:@"defaultConfigurationIsVisible" onMutableString:output];
+    [self serializeString:self.defaultConfigurationName named:@"defaultConfigurationName" onMutableString:output];
 }
 
 - (void)dealloc {
@@ -1128,11 +1128,11 @@
 }
 
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
-    if (self.children) [self serializeArray:self.children named:@"children" onMutableString:output];
-    if (self.currentVersion) [self serializePointer:self.currentVersion named:@"currentVersion" onMutableString:output];
-    if (self.path) [self serializeString:self.path named:@"path" onMutableString:output];
-    if (self.sourceTree) [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
-    if (self.versionGroupType) [self serializeString:self.versionGroupType named:@"versionGroupType" onMutableString:output];
+    [self serializeArray:self.children named:@"children" onMutableString:output];
+    [self serializePointer:self.currentVersion named:@"currentVersion" onMutableString:output];
+    [self serializeString:self.path named:@"path" onMutableString:output];
+    [self serializeString:self.sourceTree named:@"sourceTree" onMutableString:output];
+    [self serializeString:self.versionGroupType named:@"versionGroupType" onMutableString:output];
 }
 
 - (void)dealloc {

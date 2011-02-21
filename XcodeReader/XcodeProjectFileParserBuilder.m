@@ -76,18 +76,18 @@
                 [connect appendFormat:@"    }\n"];
                 [connect appendFormat:@"    self.%@ = %@Array;\n", slotName, slotName];
                 
-                [writeSlots appendFormat:@"    if (self.%@) [self serializeArray:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName, slotName];
+                [writeSlots appendFormat:@"    [self serializeArray:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName, slotName];
             } else if ([slotType isEqualToString:@"NSString"] || [slotType isEqualToString:@"NSDictionary"]) {
                 [inflate appendFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", slotName, slotName];
                 
                 if ([slotType isEqualToString:@"NSString"]) {
-                    [writeSlots appendFormat:@"    if (self.%@) [self serializeString:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName, slotName];
+                    [writeSlots appendFormat:@"    [self serializeString:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName, slotName];
                 } else if ([slotType isEqualToString:@"NSDictionary"]) {
-                    [writeSlots appendFormat:@"    if (self.%@) [self serializeDictionary:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName, slotName];
+                    [writeSlots appendFormat:@"    [self serializeDictionary:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName, slotName];
                 }
             } else {
                 [connect appendFormat:@"    self.%@ = [store objectForKey:[dict objectForKey:@\"%@\"]];\n", slotName, slotName];
-                [writeSlots appendFormat:@"    if (self.%@) [self serializePointer:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName, slotName];
+                [writeSlots appendFormat:@"    [self serializePointer:self.%@ named:@\"%@\" onMutableString:output];\n", slotName, slotName, slotName];
             }
         }
         

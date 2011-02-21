@@ -86,14 +86,14 @@
     NSArray* types = [[self.typeGroups allKeys] sortedArrayUsingSelector:@selector(compare:)];
     for (NSString* typeName in types) {
         [output appendFormat:@"\n/* Begin %@ section */\n", typeName];
-        for (XCObject* xco in [self.typeGroups objectForKey:typeName]) {
+        for (XCObject* xco in [[self.typeGroups objectForKey:typeName] sortedArrayUsingSelector:@selector(compareOriginalKeys:)]) {
             [xco writeOnMutableString:output];
         }
         [output appendFormat:@"/* End %@ section */\n", typeName];
     }
     
     [output appendString:@"    };\n"];
-    [output appendFormat:@"    rootObject = %@; /* project file */\n", self.rootObject.originalKey];
+    [output appendFormat:@"    rootObject = %@ /* Project object */;\n", self.rootObject.originalKey];
     [output appendString:@"}\n"];
     return output;
 }

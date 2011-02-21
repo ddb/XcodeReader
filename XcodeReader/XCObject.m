@@ -9,6 +9,17 @@
 #import "XCObject.h"
 #import "XcodeParserObjects.h"
 
+@implementation NSString (quoting)
+- (NSString*)quotedIfNecessary {
+    NSCharacterSet* set = [NSCharacterSet characterSetWithCharactersInString:@"()$%<>- "];
+    NSRange range = [self rangeOfCharacterFromSet:set];
+    if (range.location != NSNotFound) {
+        return [NSString stringWithFormat:@"\"%@\"", self];
+    }
+    return self;
+}
+@end
+
 @implementation XCObject
 
 @synthesize xcodeObjectType;
@@ -34,45 +45,58 @@
 - (void)writeSlotsOnMutableString:(NSMutableString*)output {
 }
 
+- (NSComparisonResult)compareOriginalKeys:(id)obj {
+    XCObject* xco = (XCObject*)obj;
+    return [self.originalKey compare:xco.originalKey];
+}
+
 - (NSString*)xcodeSavedFileObjectComment {
-    return self.xcodeObjectType;
+    return [NSString stringWithFormat:@" /* %@ */", self.xcodeObjectType];
 }
 
 - (void)serializeString:(NSString*)s named:(NSString*)name onMutableString:(NSMutableString*)output {
-    [output appendFormat:@"            %@ = \"%@\";\n", name, s];
+    if (s) {
+        [output appendFormat:@"            %@ = %@;\n", name, [s quotedIfNecessary]];
+    }
 }
 
 - (void)serializeDictionary:(NSDictionary*)dict named:(NSString*)name onMutableString:(NSMutableString*)output {
-    [output appendFormat:@"            %@ = (\n", name];
-    
-    for (id obj in [dict allKeys]) {
-        [output appendFormat:@"                \"%@\" = \"%@\",\n", obj, [dict objectForKey:obj]];
+    if (dict) {
+        [output appendFormat:@"            %@ = (\n", name];
+        
+        for (id obj in [[dict allKeys] sortedArrayUsingSelector:@selector(compare:)]) {
+            [output appendFormat:@"                %@ = %@,\n", [obj quotedIfNecessary], [[dict objectForKey:obj] quotedIfNecessary]];
+        }
+        
+        [output appendFormat:@"            );\n"];
     }
-    
-    [output appendFormat:@"            );\n"];
 }
 
 - (void)serializeArray:(NSArray*)a named:(NSString*)name onMutableString:(NSMutableString*)output {
-    [output appendFormat:@"            %@ = (\n", name];
-    
-    for (id obj in a) {
-        if ([obj isKindOfClass:[NSString class]]) {
-            [output appendFormat:@"                \"%@\",\n", obj];
-        } else {
-            XCObject* xco = (XCObject*)obj;
-            [output appendFormat:@"                %@ /* %@ */,\n", xco.originalKey, [xco xcodeSavedFileObjectComment]];
+    if (a) {
+        [output appendFormat:@"            %@ = (\n", name];
+        
+        for (id obj in a) {
+            if ([obj isKindOfClass:[NSString class]]) {
+                [output appendFormat:@"                %@,\n", [obj quotedIfNecessary]];
+            } else {
+                XCObject* xco = (XCObject*)obj;
+                [output appendFormat:@"                %@%@,\n", xco.originalKey, [xco xcodeSavedFileObjectComment]];
+            }
         }
+        
+        [output appendFormat:@"            );\n"];
     }
-    
-    [output appendFormat:@"            );\n"];
 }
 
 - (void)serializePointer:(XCObject*)xco named:(NSString*)name onMutableString:(NSMutableString*)output {
-    [output appendFormat:@"            %@ = %@; /* %@ */\n", name, xco.originalKey, [xco xcodeSavedFileObjectComment]];
+    if (xco) {
+        [output appendFormat:@"            %@ = %@%@;\n", name, xco.originalKey, [xco xcodeSavedFileObjectComment]];
+    }
 }
 
 - (void)writeOnMutableString:(NSMutableString*)output {
-    [output appendFormat:@"        %@ /* %@ */ = {\n", self.originalKey, [self xcodeSavedFileObjectComment]];
+    [output appendFormat:@"        %@%@ = {\n", self.originalKey, [self xcodeSavedFileObjectComment]];
     [output appendFormat:@"            isa = %@;\n", self.xcodeObjectType];
     [self writeSlotsOnMutableString:output];
     [output appendString:@"        };\n"];
@@ -91,7 +115,7 @@
 
 @implementation XPPBXBuildFile (output)
 - (void)writeOnMutableString:(NSMutableString*)output {
-    [output appendFormat:@"        %@ /* %@%@ */ = {isa = %@; fileRef = %@ /* %@ */; };\n", self.originalKey, self.fileRef.path, self.fileRef.sourceTree, self.xcodeObjectType, self.fileRef.originalKey, self.fileRef.path];
+    [output appendFormat:@"        %@ /* %@%@ */ = {isa = %@; fileRef = %@%@; };\n", self.originalKey, self.fileRef.path, self.fileRef.sourceTree, self.xcodeObjectType, self.fileRef.originalKey, [self.fileRef xcodeSavedFileObjectComment]];
 }
 - (NSString*)xcodeSavedFileObjectComment {
     return [self.fileRef xcodeSavedFileObjectComment];
@@ -100,25 +124,47 @@
 
 @implementation XPPBXFileReference (output)
 - (void)writeOnMutableString:(NSMutableString*)output {
-    [output appendFormat:@"        %@ /* %@ */ = {isa = %@; fileEncoding = %@; lastKnownFileType = %@; path = %@; sourceTree = \"%@\"; };\n", self.originalKey, self.path, self.xcodeObjectType, self.fileEncoding, self.lastKnownFileType, self.path, self.sourceTree];
+    [output appendFormat:@"        %@%@ = {isa = %@; ", self.originalKey, [self xcodeSavedFileObjectComment], self.xcodeObjectType];
+    if (self.fileEncoding) [output appendFormat:@"fileEncoding = %@; ", self.fileEncoding];
+    if (self.lastKnownFileType) [output appendFormat:@"lastKnownFileType = %@; ", self.lastKnownFileType];
+    if (self.path) [output appendFormat:@"path = %@; ", self.path];
+    if (self.sourceTree) [output appendFormat:@"sourceTree = %@; ", [self.sourceTree quotedIfNecessary]];
+    [output appendString:@" };\n"];
 }
 - (NSString*)xcodeSavedFileObjectComment {
+    NSString* result;
     if (self.path) {
-        return self.path;
+        result = self.path;
     } else {
-        return self.name;
+        result = self.name;
     }
+    if (!result) {
+        return @"";
+    }
+    if ([[result pathExtension] isEqualToString:@"framework"]) {
+        return [NSString stringWithFormat:@" /* %@ */", [result lastPathComponent]];
+    }
+    return [NSString stringWithFormat:@" /* %@ */", result];
 }
 @end
 
 @implementation XPPBXGroup (output)
 - (NSString*)xcodeSavedFileObjectComment {
-    return self.name;
+    if (self.name) {
+        return [NSString stringWithFormat:@" /* %@ */", self.name];
+    }
+    return @"";
 }
 @end
 
 @implementation XPPBXFrameworksBuildPhase (output)
 - (NSString*)xcodeSavedFileObjectComment {
-    return @"Frameworks";
+    return @" /* Frameworks */";
+}
+@end
+
+@implementation XPPBXVariantGroup (output)
+- (NSString*)xcodeSavedFileObjectComment {
+    return [NSString stringWithFormat:@" /* %@ */", self.name];
 }
 @end
