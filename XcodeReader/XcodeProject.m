@@ -77,11 +77,11 @@
 - (NSString*)asString {
     NSMutableString* output = [NSMutableString string];
     [output appendString:@"// !$*UTF8*$!\n{\n"];
-    [output appendFormat:@"    archiveVersion = %@;\n", self.archiveVersion];
-    [output appendFormat:@"    classes = {\n"];
-    [output appendFormat:@"    };\n"];
-    [output appendFormat:@"    objectVersion = %@;\n", self.objectVersion];
-    [output appendString:@"    objects = {\n"];
+    [output appendFormat:@"\tarchiveVersion = %@;\n", self.archiveVersion];
+    [output appendFormat:@"\tclasses = {\n"];
+    [output appendFormat:@"\t};\n"];
+    [output appendFormat:@"\tobjectVersion = %@;\n", self.objectVersion];
+    [output appendString:@"\tobjects = {\n"];
     
     NSArray* types = [[self.typeGroups allKeys] sortedArrayUsingSelector:@selector(compare:)];
     for (NSString* typeName in types) {
@@ -92,8 +92,8 @@
         [output appendFormat:@"/* End %@ section */\n", typeName];
     }
     
-    [output appendString:@"    };\n"];
-    [output appendFormat:@"    rootObject = %@ /* Project object */;\n", self.rootObject.originalKey];
+    [output appendString:@"\t};\n"];
+    [output appendFormat:@"\trootObject = %@ /* Project object */;\n", self.rootObject.originalKey];
     [output appendString:@"}\n"];
     return output;
 }

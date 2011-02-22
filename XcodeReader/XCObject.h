@@ -28,6 +28,7 @@
 - (void)serializePointer:(XCObject*)xco named:(NSString*)name onMutableString:(NSMutableString*)output;
 
 - (NSString*)xcodeSavedFileObjectComment;
+- (NSString*)xcodeSavedFileObjectArrayComment;
 
 + (XCObject*)XCObjectFromDictionary:(NSDictionary*)dict forKey:(NSString*)key;
 

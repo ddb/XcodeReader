@@ -39,12 +39,10 @@
         return EX_USAGE;
     }
     
-    ddprintf(@"Arguments: %@\n", arguments);
-    
     NSURL* xcodeProjectFile = [NSURL fileURLWithPath:[arguments objectAtIndex:0]];
     XcodeProject* xcp = [[XcodeProject alloc] initFromURL:xcodeProjectFile];
     
-    NSLog(@"asString: %@", [xcp asString]);
+    ddprintf(@"%@", [xcp asString]);
     
 //    NSLog(@"objectVersion: %@", xcp.objectVersion);
 //    NSLog(@"archiveVersion: %@", xcp.archiveVersion);
